@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Menu.css";
+import { NavLink } from "react-router-dom";
 
 function Menu(): JSX.Element {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -15,13 +16,13 @@ function Menu(): JSX.Element {
       {isOpen && (
         <ul className="Menu-list">
           <li className="Menu-item">
-            <a href="/home">Home</a>
+            <NavLink to={"/home"}>Home</NavLink>
           </li>
           <li className="Menu-item">
-            <a href="/coupons">Coupons</a>
+            <NavLink to={"/coupons"}>Coupons</NavLink>
           </li>
           <li className="Menu-item">
-            <a href="/about-us">About</a>
+            <NavLink to={"/about-us"}>About</NavLink>
           </li>
         </ul>
       )}

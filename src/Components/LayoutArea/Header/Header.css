@@ -5,9 +5,12 @@
   justify-content: center;
 }
 img {
+  height: inherit;
+  display: inherit;
+  flex-direction: inherit;
+  position: absolute;
   margin-right: auto;
   padding-left: 75px;
-  display: inline-block;
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 200px;
+  max-height: 100px;
 }
