@@ -25,61 +25,61 @@ export interface AdminAction {
   payload: any;
 }
 
-export function addCompany(company: ComapnyModel): AdminAction {
+export function addCompanyAction(company: ComapnyModel): AdminAction {
   return {
     type: AdminActionType.AddCompany,
     payload: company,
   };
 }
-export function updateCompany(company: ComapnyModel): AdminAction {
+export function updateCompanyAction(company: ComapnyModel): AdminAction {
   return {
     type: AdminActionType.UpdateCompany,
     payload: company,
   };
 }
-export function deleteCompany(companyId: number): AdminAction {
+export function deleteCompanyAction(companyId: number): AdminAction {
   return {
     type: AdminActionType.DeleteCompany,
     payload: companyId,
   };
 }
-export function getAllCompanies(compenies: ComapnyModel[]): AdminAction {
+export function getAllCompaniesAction(compenies: ComapnyModel[]): AdminAction {
   return {
     type: AdminActionType.GetAllCompanies,
     payload: compenies,
   };
 }
-export function getOneCompany(companyId: number): AdminAction {
+export function getOneCompanyAction(companyId: number): AdminAction {
   return {
     type: AdminActionType.GetOneCompany,
     payload: companyId,
   };
 }
-export function addCustomer(cutomer: CustomerModel): AdminAction {
+export function addCustomerAction(cutomer: CustomerModel): AdminAction {
   return {
     type: AdminActionType.AddCustomer,
     payload: cutomer,
   };
 }
-export function updateCustomer(customer: CustomerModel): AdminAction {
+export function updateCustomerAction(customer: CustomerModel): AdminAction {
   return {
     type: AdminActionType.UpdateCustomer,
     payload: customer,
   };
 }
-export function deleteCustomer(customerId: number): AdminAction {
+export function deleteCustomerAction(customerId: number): AdminAction {
   return {
     type: AdminActionType.DeleteCustomer,
     payload: customerId,
   };
 }
-export function getAllCustomers(customers: CustomerModel[]): AdminAction {
+export function getAllCustomersAction(customers: CustomerModel[]): AdminAction {
   return {
     type: AdminActionType.GetAllCustomers,
     payload: customers,
   };
 }
-export function getOneCustomer(customerId: number): AdminAction {
+export function getOneCustomerAction(customerId: number): AdminAction {
   return {
     type: AdminActionType.GetOneCustomer,
     payload: customerId,

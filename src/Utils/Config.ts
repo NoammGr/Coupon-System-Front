@@ -4,12 +4,64 @@ class Config {}
 
 // Development Environment
 class DevelopmentConfig extends Config {
+  // login
   loginUrl = "http://localhost:8080/login";
+  // admin
+  adminAddCompanyUrl = "http://localhost:8080/admin/api/add-company";
+  adminUpdateCompanyUrl = "http://localhost:8080/admin/api/update-company";
+  adminDeleteCompanyUrl = "http://localhost:8080/admin/api/delete-company";
+  adminGetAllCompaniesUrl = "http://localhost:8080/admin/api/get-all-companies";
+  adminGetOneCompanyUrl = "http://localhost:8080/admin/api/get-one-company";
+  adminAddCustomerUrl = "http://localhost:8080/admin/api/add-customer";
+  adminUpdateCustomerUrl = "http://localhost:8080/admin/api/update-customer";
+  adminDeleteCustomerUrl = "http://localhost:8080/admin/api/delete-customer";
+  adminGetAllCustomersUrl = "http://localhost:8080/admin/api/get-all-customers";
+  adminGetOneCustomerUrl = "http://localhost:8080/admin/api/get-one-customer";
+  // comapny
+  companyAddCouponUrl = "http://localhost:8080/company/api/add-coupon";
+  companyUpdateCouponUrl = "http://localhost:8080/company/api/update-coupon";
+  companyDeleteCouponUrl = "http://localhost:8080/company/api/delete-coupon";
+  companyGetAllCouponsUrl = "http://localhost:8080/company/api/get-all-company-coupons";
+  companyGetAllCouponsByCategoryUrl = "http://localhost:8080/company/api/get-all-coupons-category";
+  companyGetAllCouponsByMaxPriceUrl = "http://localhost:8080/company/api/get-all-coupons-maxPrice";
+  companyGetCompanyDetailsUrl = "http://localhost:8080/company/api/get-company-details";
+  // customer
+  customerPurchaseCouponUrl = "http://localhost:8080/customer/api/coupon-purchase";
+  customerGetCustomerCouponsUrl = "http://localhost:8080/customer/api/get-customer-coupons";
+  customerGetcustomerCouponsByCategoryUrl = "http://localhost:8080/customer/api/get-coupons-category";
+  customerGetcustomerCouponsByMaxPriceUrl = "http://localhost:8080/customer/api/get-coupons-maxPrice";
+  customerGetcustomerDetailsUrl = "http://localhost:8080/customer/api/get-customer-details";
 }
 
 // Production Environment
 class ProductionConfig extends Config {
+  // login
   loginUrl = "http://localhost:8080/login";
+  // admin
+  adminAddCompanyUrl = "http://localhost:8080/admin/api/add-company";
+  adminUpdateCompanyUrl = "http://localhost:8080/admin/api/update-company";
+  adminDeleteCompanyUrl = "http://localhost:8080/admin/api/delete-company";
+  adminGetAllCompaniesUrl = "http://localhost:8080/admin/api/get-all-companies";
+  adminGetOneCompanyUrl = "http://localhost:8080/admin/api/get-one-company";
+  adminAddCustomerUrl = "http://localhost:8080/admin/api/add-customer";
+  adminUpdateCustomerUrl = "http://localhost:8080/admin/api/update-customer";
+  adminDeleteCustomerUrl = "http://localhost:8080/admin/api/delete-customer";
+  adminGetAllCustomersUrl = "http://localhost:8080/admin/api/get-all-customers";
+  adminGetOneCustomerUrl = "http://localhost:8080/admin/api/get-one-customer";
+  // comapny
+  companyAddCouponUrl = "http://localhost:8080/company/api/add-coupon";
+  companyUpdateCouponUrl = "http://localhost:8080/company/api/update-coupon";
+  companyDeleteCouponUrl = "http://localhost:8080/company/api/delete-coupon";
+  companyGetAllCouponsUrl = "http://localhost:8080/company/api/get-all-company-coupons";
+  companyGetAllCouponsByCategoryUrl = "http://localhost:8080/company/api/get-all-coupons-category";
+  companyGetAllCouponsByMaxPriceUrl = "http://localhost:8080/company/api/get-all-coupons-maxPrice";
+  companyGetCompanyDetailsUrl = "http://localhost:8080/company/api/get-company-details";
+  // customer
+  customerPurchaseCouponUrl = "http://localhost:8080/customer/api/coupon-purchase";
+  customerGetCustomerCouponsUrl = "http://localhost:8080/customer/api/get-customer-coupons";
+  customerGetcustomerCouponsByCategoryUrl = "http://localhost:8080/customer/api/get-coupons-category";
+  customerGetcustomerCouponsByMaxPriceUrl = "http://localhost:8080/customer/api/get-coupons-maxPrice";
+  customerGetcustomerDetailsUrl = "http://localhost:8080/customer/api/get-customer-details";
 }
 
 const appConfig =

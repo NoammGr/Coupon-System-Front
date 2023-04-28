@@ -2,6 +2,7 @@ import { createStore } from "redux";
 import ComapnyModel from "../Models/CompanyModel";
 import CouponModel from "../Models/CouponModel";
 import CustomerModel from "../Models/CustomerModel";
+import CategoryModel from "../Models/CategoryModel";
 
 export class CustomerState {
   public coupon: CouponModel[] = [];
@@ -10,7 +11,7 @@ export class CustomerState {
 
 export enum customerActionType {
   PurchaseCoupon,
-  GetCustomerCoupon,
+  GetCustomerCoupons,
   GetCustomerDetails,
 }
 
@@ -19,45 +20,39 @@ export interface customerAction {
   payload: any;
 }
 
-export function purchaseCoupon(
-  coupon: CouponModel,
-  custoemr: CustomerModel
-): customerAction {
+export function purchaseCouponAction(coupon: CouponModel): customerAction {
   return {
     type: customerActionType.PurchaseCoupon,
-    payload: { coupon, custoemr },
+    payload: coupon,
   };
 }
-export function getcustomerCoupons(
-  coupons: CouponModel[],
-  customer: CustomerModel
+export function getcustomerCouponsAction(
+  coupons: CouponModel[]
 ): customerAction {
   return {
-    type: customerActionType.GetCustomerCoupon,
-    payload: { coupons, customer },
+    type: customerActionType.GetCustomerCoupons,
+    payload: coupons,
   };
 }
-export function getcustomerCouponsByCategory(
-  customerId: number,
-  category: string
+export function getcustomerCouponsByCategoryAction(
+  category: CategoryModel
 ): customerAction {
   return {
-    type: customerActionType.GetCustomerCoupon,
-    payload: { customerId, category },
+    type: customerActionType.GetCustomerCoupons,
+    payload: category,
   };
 }
-export function getcustomerCouponsByMaxPrice(
-  customerId: number,
+export function getcustomerCouponsByMaxPriceAction(
   maxPrice: number
 ): customerAction {
   return {
-    type: customerActionType.GetCustomerCoupon,
-    payload: { customerId, maxPrice },
+    type: customerActionType.GetCustomerCoupons,
+    payload: maxPrice,
   };
 }
-export function getcustomerDetails(customer: ComapnyModel): customerAction {
+export function getcustomerDetailsAction(customer: CustomerModel): customerAction {
   return {
-    type: customerActionType.GetCustomerCoupon,
+    type: customerActionType.GetCustomerCoupons,
     payload: customer,
   };
 }
@@ -71,7 +66,7 @@ export function productsReducer(
     case customerActionType.PurchaseCoupon:
       newState.coupon.push(action.payload);
       break;
-    case customerActionType.GetCustomerCoupon:
+    case customerActionType.GetCustomerCoupons:
       newState.customer = action.payload;
       break;
     case customerActionType.GetCustomerDetails:

@@ -1,6 +1,7 @@
 import { createStore } from "redux";
 import ComapnyModel from "../Models/CompanyModel";
 import CouponModel from "../Models/CouponModel";
+import CategoryModel from "../Models/CategoryModel";
 
 export class CompanyState {
   public coupon: CouponModel[] = [];
@@ -20,52 +21,50 @@ export interface CompanyAction {
   payload: any;
 }
 
-export function addCoupon(coupon: CouponModel): CompanyAction {
+export function addCouponAction(coupon: CouponModel): CompanyAction {
   return {
     type: CompanyActionType.AddCoupon,
     payload: coupon,
   };
 }
-export function updateCoupon(coupon: CouponModel): CompanyAction {
+export function updateCouponAction(coupon: CouponModel): CompanyAction {
   return {
     type: CompanyActionType.UpdateCoupon,
     payload: coupon,
   };
 }
-export function deleteCoupon(couponId: number): CompanyAction {
+export function deleteCouponAction(couponId: number): CompanyAction {
   return {
     type: CompanyActionType.DeleteCoupon,
     payload: couponId,
   };
 }
-export function getCompanyCoupons(coupons: CouponModel[]): CompanyAction {
+export function getCompanyCouponsAction(coupons: CouponModel[]): CompanyAction {
   return {
     type: CompanyActionType.GetCompanyCoupons,
     payload: coupons,
   };
 }
-export function getCompanyCouponsByCategory(
-  companyId: number,
-  category: string
+export function getCompanyCouponsByCategoryAction(
+  category: CategoryModel
 ): CompanyAction {
   return {
     type: CompanyActionType.GetCompanyCoupons,
-    payload: { companyId, category },
+    payload: category,
   };
 }
-export function getCompanyCouponsByMaxPrice(
-  companyId: number,
+export function getCompanyCouponsByMaxPriceAction(
   maxPrice: number
 ): CompanyAction {
   return {
     type: CompanyActionType.GetCompanyCoupons,
-    payload: { companyId, maxPrice },
+    payload: maxPrice,
   };
 }
-export function getCompanyDetails(company: ComapnyModel): CompanyAction {
+export function getCompanyDetailsAction(companyId: number): CompanyAction {
   return {
     type: CompanyActionType.GetCompanyDetails,
-    payload: company,
+    payload: companyId,
   };
 }
 
@@ -99,4 +98,4 @@ export function productsReducer(
   }
   return newState;
 }
-export const CompanyStore = createStore(productsReducer);
+export const companyStore = createStore(productsReducer);
