@@ -1,0 +1,7 @@
+.CouponsList > a {
+    position: absolute;
+    right: 5%;
+    top: 17%;
+    transform: scale(1.5);
+    text-decoration: none;
+}

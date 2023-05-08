@@ -31,6 +31,9 @@ class DevelopmentConfig extends Config {
   customerGetcustomerCouponsByCategoryUrl = "http://localhost:8080/customer/api/get-coupons-category";
   customerGetcustomerCouponsByMaxPriceUrl = "http://localhost:8080/customer/api/get-coupons-maxPrice";
   customerGetcustomerDetailsUrl = "http://localhost:8080/customer/api/get-customer-details";
+  // general api
+  couponsGetAll = "http://localhost:8080/general/api/get-all-coupons";
+  couponsGetImageUrl = "http://localhost:8080/general/api/get-image-id";
 }
 
 // Production Environment
@@ -62,6 +65,9 @@ class ProductionConfig extends Config {
   customerGetcustomerCouponsByCategoryUrl = "http://localhost:8080/customer/api/get-coupons-category";
   customerGetcustomerCouponsByMaxPriceUrl = "http://localhost:8080/customer/api/get-coupons-maxPrice";
   customerGetcustomerDetailsUrl = "http://localhost:8080/customer/api/get-customer-details";
+    // general api
+    couponsGetAll = "http://localhost:8080/general/api/get-all-coupons";
+    couponsGetImageUrl = "http://localhost:8080/general/api/get-image-id";
 }
 
 const appConfig =
