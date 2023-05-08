@@ -46,10 +46,8 @@ export function authReducer(
     case AuthActionType.Login:
       console.log("Login action received with payload: ", action.payload);
       newState.token = action.payload;
-      const decodedToken: { credentials: CredentialsModel } = jwtDecode(
-        newState.token
-      );
-      newState.credentials = decodedToken.credentials;
+      const decodedToken: CredentialsModel = jwtDecode(newState.token);
+      newState.credentials = decodedToken;
       console.log("Decoded token: ", decodedToken);
       localStorage.setItem("token", newState.token);
       break;
