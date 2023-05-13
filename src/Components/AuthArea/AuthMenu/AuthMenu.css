@@ -1,5 +1,8 @@
 .AuthMenu {
-	position: absolute;
+    position: absolute;
     right: 20px;
-    top: 20px;
+    justify-content: center;
+    box-sizing: border-box;
+    font-size: small;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

@@ -4,6 +4,7 @@
   text-align: left;
   background-image: linear-gradient(90deg, lightgray, white);
   position: relative;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .CouponsCard img {
@@ -17,4 +18,5 @@
 
 .CouponsCard > div:last-child {
   margin-left: auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
