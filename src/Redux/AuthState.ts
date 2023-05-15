@@ -8,12 +8,12 @@ export class AuthState {
 
   constructor() {
     this.token = localStorage.getItem("token");
+    console.log(this.token);
     if (this.token) {
-      const decodedToken: { credentials: CredentialsModel } = jwtDecode(
-        this.token
-      );
+      console.log(this.token);
+      const decodedToken: CredentialsModel = jwtDecode(this.token);
       console.log(this.credentials);
-      this.credentials = decodedToken.credentials;
+      this.credentials = decodedToken;
       console.log(this.credentials);
       console.log("credentials object: ", this.credentials);
     }
