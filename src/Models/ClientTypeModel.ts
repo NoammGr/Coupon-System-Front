@@ -1,6 +1,6 @@
 enum ClientTypeModel {
-  ADMIN,
-  COMPANY,
-  CUSTOMER,
+  ADMIN = "ADMIN",
+  COMPANY = "COMPANY",
+  CUSTOMER = "CUSTOMER",
 }
 export default ClientTypeModel;

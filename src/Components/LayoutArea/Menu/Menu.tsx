@@ -17,7 +17,7 @@ function Menu(): JSX.Element {
       setUser(authStore.getState().credentials);
     });
     return unsubscribe;
-  }, [user]);
+  }, []);
 
   const toggleMenu = (): void => {
     setUser(authStore.getState().credentials);
