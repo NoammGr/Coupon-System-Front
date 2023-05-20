@@ -7,6 +7,6 @@ class ComapnyModel {
   email?: string;
   password?: string;
   coupons?: CouponModel[];
-  clientType: ClientTypeModel = ClientTypeModel.COMPANY;
+  clientType: ClientTypeModel;
 }
 export default ComapnyModel;

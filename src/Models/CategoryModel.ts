@@ -1,9 +1,9 @@
 enum CategoryModel {
-  Food,
-  Electricity,
-  Restaurant,
-  Vacation,
-  Movies,
-  Shopping,
+  FOOD = "Food",
+  ELECTRICITY = "Electricity",
+  RESTAURANT = "Restaurant",
+  VACATION = "Vacation",
+  MOVIES = "Movies",
+  SHOPPING = "Shopping",
 }
 export default CategoryModel;

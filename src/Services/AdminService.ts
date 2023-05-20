@@ -15,35 +15,23 @@ import appConfig from "../Utils/Config";
 import CustomerModel from "../Models/CustomerModel";
 
 class AdminService {
-  async addCompany(company: ComapnyModel): Promise<void> {
-    const formData = new FormData();
-    formData.append("id", company.id.toString());
-    formData.append("name", company.name);
-    formData.append("email", company.email);
-    formData.append("password", company.password.toString());
-    formData.append("coupons", null);
-    formData.append("clientType", company.clientType.toString());
+  public async addCompany(company: ComapnyModel): Promise<void> {
+    console.log("addCompany method : " + company);
     const response = await axios.post<ComapnyModel>(
       appConfig.adminAddCompanyUrl,
-      formData
+      company
     );
     const addedCompany = response.data;
     adminStore.dispatch(addCompanyAction(addedCompany));
   }
 
   public async updateCompany(company: ComapnyModel): Promise<void> {
-    const formData = new FormData();
-    formData.append("id", company.id.toString());
-    formData.append("name", company.name);
-    formData.append("email", company.email);
-    formData.append("password", company.password.toString());
-    formData.append("coupons", null);
-    formData.append("clientType", company.clientType.toString());
     const response = await axios.put<ComapnyModel>(
-      appConfig.adminUpdateCompanyUrl + company.id,
-      formData
+      appConfig.adminUpdateCompanyUrl,
+      company
     );
     const updatedCompany = response.data;
+    console.log(response);
     adminStore.dispatch(updateCompanyAction(updatedCompany));
   }
 
@@ -65,38 +53,26 @@ class AdminService {
   }
 
   public async getOneCompany(companyId: number): Promise<ComapnyModel> {
-    return adminStore.getState().company.find((p) => p.id === companyId);
+    const response = await axios.get<ComapnyModel>(
+      appConfig.adminGetOneCompanyUrl + "?companyId=" + companyId
+    );
+    const updatedCompany = response.data;
+    return updatedCompany;
   }
 
   async addCustomer(customer: CustomerModel): Promise<void> {
-    const formData = new FormData();
-    formData.append("id", customer.id.toString());
-    formData.append("firstName", customer.firstName);
-    formData.append("lastName", customer.lastName);
-    formData.append("email", customer.email);
-    formData.append("password", customer.password.toString());
-    formData.append("coupons", null);
-    formData.append("clientType", customer.clientType.toString());
     const response = await axios.post<ComapnyModel>(
       appConfig.adminAddCustomerUrl,
-      formData
+      customer
     );
     const addedCustomer = response.data;
     adminStore.dispatch(addCustomerAction(addedCustomer));
   }
 
   public async updateCustomer(customer: CustomerModel): Promise<void> {
-    const formData = new FormData();
-    formData.append("id", customer.id.toString());
-    formData.append("firstName", customer.firstName);
-    formData.append("lastName", customer.lastName);
-    formData.append("email", customer.email);
-    formData.append("password", customer.password.toString());
-    formData.append("coupons", null);
-    formData.append("clientType", customer.clientType.toString());
     const response = await axios.put<ComapnyModel>(
       appConfig.adminUpdateCompanyUrl + customer.id,
-      formData
+      customer
     );
     const updatedCustomer = response.data;
     adminStore.dispatch(updateCustomerAction(updatedCustomer));

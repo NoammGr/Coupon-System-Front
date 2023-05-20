@@ -21,13 +21,18 @@ function Login(): JSX.Element {
       <form onSubmit={handleSubmit(send)}>
         <h2>Login</h2>
 
-        <label>Username : </label>
+        <label>Username:</label>
         <input type="text" {...register("email")} />
 
-        <label>Password : </label>
+        <label>Password:</label>
         <input type="password" {...register("password")} />
-        <label>Client Type : </label>
-        <input type="text" {...register("clientType")} />
+
+        <label>Client Type:</label>
+        <select {...register("clientType")}>
+          <option value="ADMIN">ADMIN</option>
+          <option value="COMPANY">COMPANY</option>
+          <option value="CUSTOMER">CUSTOMER</option>
+        </select>
         <button>Login</button>
       </form>
     </div>

@@ -5,10 +5,11 @@ body,
   height: 100%;
   text-align: center;
   color: #003366;
-  background-image: linear-gradient(45deg, #ADD8E6, #FFFFFF);
+  background-image: linear-gradient(45deg, #add8e6, #ffffff);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 a {
-  color: #0066CC;
+  color: #0066cc;
 }
 .Box {
   display: inline-block;
@@ -16,5 +17,5 @@ a {
   padding: 10px;
   margin: 10px;
   border-radius: 5px;
-  box-shadow: 5px 5px 5px #B0C4DE;
+  box-shadow: 5px 5px 5px #b0c4de;
 }
