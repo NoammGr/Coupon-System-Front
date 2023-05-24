@@ -17,6 +17,7 @@ aside {
 main {
   grid-column: span 5;
   border: inherit;
+  overflow: auto;
 }
 footer {
   grid-column: span 6;

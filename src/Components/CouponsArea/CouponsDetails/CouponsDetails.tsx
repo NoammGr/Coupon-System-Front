@@ -4,23 +4,29 @@ import notificationService from "../../../Services/NotificationService";
 import "./CouponsDetails.css";
 import CouponModel from "../../../Models/CouponModel";
 import couponService from "../../../Services/CouponService";
-import appConfig from "../../../Utils/Config";
 
 function CouponsDetails(): JSX.Element {
   const params = useParams();
   const couponId = +params.couponId;
 
   const [coupon, setCoupon] = useState<CouponModel>();
+  const [image, setImage] = useState<string>("");
 
   useEffect(() => {
-    couponService.getOneCoupon(couponId).then(
-      (c) => {
+    couponService
+      .getOneCoupon(couponId)
+      .then((c) => {
         setCoupon(c);
-      },
-      (error) => {
+      })
+      .catch((error) => {
         notificationService.error(error);
-      }
-    );
+      });
+    couponService
+      .getCouponImage(couponId)
+      .then((couponImage) => {
+        setImage(couponImage);
+      })
+      .catch((error) => notificationService.error(error));
   });
   return (
     <div className="CouponsDetails">
@@ -35,7 +41,7 @@ function CouponsDetails(): JSX.Element {
             Start-date: {coupon.startDate ? coupon.startDate.toString() : ""}
           </h3>
           <h3>End-date: {coupon.endDate ? coupon.endDate.toString() : ""}</h3>
-          <img src={appConfig.couponsGetImageUrl + coupon.id} alt="" />
+          <img className="DetailsImg" src={image} alt="" />
           <br />
           <br />
           <br />

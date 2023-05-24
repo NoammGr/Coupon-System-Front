@@ -1,6 +1,9 @@
 .CouoponDetails {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  overflow: auto;
 }
-.CouoponDetails img {
+.DetailsImg {
   height: 300px;
+  width: auto;
+  box-sizing: border-box;
 }

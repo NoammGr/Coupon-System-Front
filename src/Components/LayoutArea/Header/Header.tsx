@@ -6,7 +6,7 @@ function Header(): JSX.Element {
   return (
     <div className="Header">
       <NavLink to={"/home"}>
-        <img src={Logo} alt="Coupon system logo" />
+        <img className="HeaderImage" src={Logo} alt="Coupon system logo" />
       </NavLink>
       <AuthMenu />
     </div>

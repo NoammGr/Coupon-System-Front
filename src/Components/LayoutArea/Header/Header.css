@@ -4,8 +4,9 @@
   flex-direction: column;
   justify-content: center;
   position: relative;
+  overflow: auto;
 }
-img {
+.HeaderImage {
   height: 100%;
   width: auto;
   max-width: 100%;

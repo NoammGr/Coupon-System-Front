@@ -3,7 +3,7 @@ import CustomerModel from "./CustomerModel";
 
 class CouponModel {
   id?: number;
-  company?: CouponModel;
+  company?: number;
   category?: CategoryModel;
   title?: string;
   description?: string;

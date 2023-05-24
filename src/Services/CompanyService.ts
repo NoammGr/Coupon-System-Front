@@ -18,33 +18,43 @@ class CompanyService {
   public async addCoupon(coupon: CouponModel): Promise<void> {
     const formData = new FormData();
     formData.append("id", coupon.id.toString());
-    formData.append("company", coupon.company.id.toString());
+    formData.append("company", coupon.company.toString());
     formData.append("category", coupon.category.toString());
     formData.append("title", coupon.title);
     formData.append("description", coupon.description);
-    formData.append("startDate", coupon.startDate.getTime.toString());
-    formData.append("endDate", coupon.endDate.getTime.toString());
+    formData.append("startDate", coupon.startDate.toString());
+    formData.append("endDate", coupon.endDate.toString());
     formData.append("amount", coupon.amount.toString());
     formData.append("price", coupon.price.toString());
     formData.append("image", coupon.image as File);
-    formData.append("customers", (coupon.customers = null));
-    const response = await axios.post<CouponModel>(
-      appConfig.companyAddCouponUrl,
-      formData
-    );
-    const addedCoupon = response.data;
-    companyStore.dispatch(addCouponAction(addedCoupon));
+    formData.append("customers", coupon.customers?.toString());
+    try {
+      const response = await axios.post<CouponModel>(
+        appConfig.companyAddCouponUrl,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      const addedCoupon = response.data;
+      companyStore.dispatch(addCouponAction(addedCoupon));
+    } catch (error: any) {
+      console.error("Error occurred while adding coupon:", error);
+      throw error;
+    }
   }
 
   public async updateCoupon(coupon: CouponModel): Promise<void> {
     const formData = new FormData();
     formData.append("id", coupon.id.toString());
-    formData.append("company", coupon.company.id.toString());
+    formData.append("company", coupon.company.toString());
     formData.append("category", coupon.category.toString());
     formData.append("title", coupon.title);
     formData.append("description", coupon.description);
-    formData.append("startDate", coupon.startDate.getTime.toString());
-    formData.append("endDate", coupon.endDate.getTime.toString());
+    formData.append("startDate", coupon.startDate.toString());
+    formData.append("endDate", coupon.endDate.toString());
     formData.append("amount", coupon.amount.toString());
     formData.append("price", coupon.price.toString());
     formData.append("image", coupon.image as File);
