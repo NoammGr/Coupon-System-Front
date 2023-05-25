@@ -11,8 +11,9 @@ function Login(): JSX.Element {
     try {
       await authService.login(credentials);
       notificationService.success("Welcome Back !");
-    } catch (error) {
-      notificationService.error(error);
+    } catch (error: any) {
+      notificationService.error("Check credentials and try again !");
+      console.log(error.response.data);
     }
   }
 

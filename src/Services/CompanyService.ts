@@ -28,22 +28,17 @@ class CompanyService {
     formData.append("price", coupon.price.toString());
     formData.append("image", coupon.image as File);
     formData.append("customers", coupon.customers?.toString());
-    try {
-      const response = await axios.post<CouponModel>(
-        appConfig.companyAddCouponUrl,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-      const addedCoupon = response.data;
-      companyStore.dispatch(addCouponAction(addedCoupon));
-    } catch (error: any) {
-      console.error("Error occurred while adding coupon:", error);
-      throw error;
-    }
+    const response = await axios.post<CouponModel>(
+      appConfig.companyAddCouponUrl,
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
+    const addedCoupon = response.data;
+    companyStore.dispatch(addCouponAction(addedCoupon));
   }
 
   public async updateCoupon(coupon: CouponModel): Promise<void> {

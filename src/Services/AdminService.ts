@@ -13,20 +13,15 @@ import {
 } from "../Redux/AdminState";
 import appConfig from "../Utils/Config";
 import CustomerModel from "../Models/CustomerModel";
-import notificationService from "./NotificationService";
 
 class AdminService {
   public async addCompany(company: ComapnyModel): Promise<void> {
-    axios
-      .post<ComapnyModel>(appConfig.adminAddCompanyUrl, company)
-      .then((response) => {
-        const addedCompany = response.data;
-        adminStore.dispatch(addCompanyAction(addedCompany));
-      })
-      .catch((error) => {
-        notificationService.error(error);
-        throw error;
-      });
+    const response = await axios.post<ComapnyModel>(
+      appConfig.adminAddCompanyUrl,
+      company
+    );
+    const addedCompany = response.data;
+    adminStore.dispatch(addCompanyAction(addedCompany));
   }
 
   public async updateCompany(company: ComapnyModel): Promise<void> {
