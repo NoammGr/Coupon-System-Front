@@ -1,27 +1,45 @@
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import CompanyModel from "../../../Models/CompanyModel";
-import adminService from "../../../Services/AdminService";
-import notificationService from "../../../Services/NotificationService";
+import { useNavigate, useParams } from "react-router-dom";
+import CompanyModel from "../../../../Models/CompanyModel";
+import adminService from "../../../../Services/AdminService";
+import notificationService from "../../../../Services/NotificationService";
 import "./UpdateCompany.css";
 import { useCallback, useEffect, useState } from "react";
+import ComapnyModel from "../../../../Models/CompanyModel";
 
 function UpdateCompany(): JSX.Element {
-  const { register, handleSubmit, formState } = useForm<CompanyModel>();
-  const [oldCompany, setOldCompany] = useState<CompanyModel>();
-
+  const { register, handleSubmit, formState, setValue } =
+    useForm<CompanyModel>();
+  const [oldCompany, setOldCompany] = useState<ComapnyModel>();
   const navigate = useNavigate();
+  const params = useParams();
+  const companyId = +params.companyId;
 
   const fetchCompany = useCallback(async (companyToUpdate: CompanyModel) => {
     try {
       const newUser = await adminService.getOneCompany(companyToUpdate.id);
       setOldCompany(newUser);
     } catch (error: any) {
-      notificationService.error(error);
+      notificationService.error(error.response.data.message);
     }
   }, []);
 
   useEffect(() => {}, [fetchCompany]);
+
+  useEffect(() => {
+    adminService
+      .getOneCompany(companyId)
+      .then((fetchCompany) => {
+        setValue("id", fetchCompany.id);
+        setValue("name", fetchCompany.name);
+        setValue("email", fetchCompany.email);
+        setValue("password", fetchCompany.password);
+        setValue("clientType", fetchCompany.clientType);
+      })
+      .catch((error: any) =>
+        notificationService.error(error.response.data.message)
+      );
+  }, [companyId, setValue]);
 
   async function send(company: CompanyModel) {
     company.id = oldCompany.id;
@@ -31,13 +49,12 @@ function UpdateCompany(): JSX.Element {
     try {
       await adminService.updateCompany(company);
       notificationService.success("Company edited!");
-      navigate("/admin/api/get-all-companies");
+      navigate("/admin/api/manage-companies");
     } catch (error: any) {
-      notificationService.error(error);
-      console.dir(error);
+      notificationService.error(error.response.data.message);
+      console.dir(error.response.data.message);
     }
   }
-
   if (!oldCompany) {
     return (
       <div className="UpdateCompany">

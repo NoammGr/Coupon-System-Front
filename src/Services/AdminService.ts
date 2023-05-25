@@ -34,7 +34,7 @@ class AdminService {
   }
 
   public async deleteCompany(companyId: number): Promise<void> {
-    await axios.delete(appConfig.adminDeleteCompanyUrl + companyId);
+    await axios.delete(appConfig.adminDeleteCompanyUrl+"?companyId=" + companyId);
     adminStore.dispatch(deleteCompanyAction(companyId));
   }
 

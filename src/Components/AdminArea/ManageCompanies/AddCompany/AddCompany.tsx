@@ -1,15 +1,14 @@
 import "./AddCompany.css";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import ComapnyModel from "../../../Models/CompanyModel";
-import notificationService from "../../../Services/NotificationService";
+import ComapnyModel from "../../../../Models/CompanyModel";
+import notificationService from "../../../../Services/NotificationService";
 import "./AddCompany.css";
-import adminService from "../../../Services/AdminService";
-import ClientTypeModel from "../../../Models/ClientTypeModel";
+import adminService from "../../../../Services/AdminService";
+import ClientTypeModel from "../../../../Models/ClientTypeModel";
 
 function AddCompany(): JSX.Element {
   const { register, handleSubmit, formState } = useForm<ComapnyModel>();
-
   const navigate = useNavigate();
 
   async function send(company: ComapnyModel) {
@@ -19,10 +18,10 @@ function AddCompany(): JSX.Element {
     try {
       await adminService.addCompany(company);
       notificationService.success("Company added !");
-      navigate("/admin/api/get-all-companies");
+      navigate("/admin/api/manage-companies");
     } catch (error: any) {
-      notificationService.error(error);
-      console.dir(error);
+      notificationService.error(error.response.data.message);
+      console.dir(error.response.data.message);
     }
   }
 
