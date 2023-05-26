@@ -1,52 +1,50 @@
-import "./AddCompany.css";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import ComapnyModel from "../../../../Models/CompanyModel";
-import notificationService from "../../../../Services/NotificationService";
-import "./AddCompany.css";
-import adminService from "../../../../Services/AdminService";
 import ClientTypeModel from "../../../../Models/ClientTypeModel";
+import CustomerModel from "../../../../Models/CustomerModel";
+import adminService from "../../../../Services/AdminService";
+import notificationService from "../../../../Services/NotificationService";
+import "./AddCustomer.css";
 import { useEffect, useState } from "react";
 
-function AddCompany(): JSX.Element {
-  const { register, handleSubmit, formState } = useForm<ComapnyModel>();
+function AddCustomer(): JSX.Element {
+  const { register, handleSubmit, formState } = useForm<CustomerModel>();
   const navigate = useNavigate();
-  const [companyId, setCompanyId] = useState<number>();
+  const [customerId, setCustomerId] = useState<number>();
 
   useEffect(() => {
     adminService
-      .getCompanyCount()
-      .then((compId) => {
-        setCompanyId(compId + 1);
+      .getCustomerCount()
+      .then((customId) => {
+        setCustomerId(customId + 1);
       })
       .catch((error: any) => {
         notificationService.error(error.response.data.message);
       });
-  }, []);
-
-  async function send(company: ComapnyModel) {
-    company.id = companyId;
-    company.coupons = [];
-    company.clientType = ClientTypeModel.COMPANY;
+  });
+  
+  async function send(customer: CustomerModel) {
+    customer.id = customerId;
+    customer.coupons = [];
+    customer.clientType = ClientTypeModel.CUSTOMER;
     try {
-      await adminService.addCompany(company);
-      notificationService.success("Company added!");
-      navigate("/admin/api/manage-companies");
+      await adminService.addCustomer(customer);
+      notificationService.success("Customer added !");
+      navigate("/admin/api/manage-customers");
     } catch (error: any) {
       notificationService.error(error.response.data.message);
       console.dir(error.response.data.message);
     }
   }
-
   return (
-    <div className="AddCompany Box">
+    <div className="AddCustomer Box">
       <form onSubmit={handleSubmit(send)}>
-        <h2>Add company:</h2>
+        <h2>Add customer:</h2>
 
-        <label>Name:</label>
+        <label>First name:</label>
         <input
           type="text"
-          {...register("name", {
+          {...register("firstName", {
             required: { value: true, message: "Missing name" },
             minLength: {
               value: 2,
@@ -54,7 +52,20 @@ function AddCompany(): JSX.Element {
             },
           })}
         />
-        <span>{formState.errors?.name?.message}</span>
+        <span>{formState.errors?.firstName?.message}</span>
+
+        <label>Last name:</label>
+        <input
+          type="text"
+          {...register("lastName", {
+            required: { value: true, message: "Missing name" },
+            minLength: {
+              value: 2,
+              message: "Name needs to be more than 2 characters",
+            },
+          })}
+        />
+        <span>{formState.errors?.lastName?.message}</span>
 
         <label>Email:</label>
         <input
@@ -80,4 +91,4 @@ function AddCompany(): JSX.Element {
   );
 }
 
-export default AddCompany;
+export default AddCustomer;

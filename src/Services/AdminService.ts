@@ -16,25 +16,17 @@ import CustomerModel from "../Models/CustomerModel";
 
 class AdminService {
   public async addCompany(company: ComapnyModel): Promise<void> {
-    const response = await axios.post<ComapnyModel>(
-      appConfig.adminAddCompanyUrl,
-      company
-    );
-    const addedCompany = response.data;
-    adminStore.dispatch(addCompanyAction(addedCompany));
+    await axios.post<ComapnyModel>(appConfig.adminAddCompanyUrl, company);
+    adminStore.dispatch(addCompanyAction(company));
   }
 
   public async updateCompany(company: ComapnyModel): Promise<void> {
-    const response = await axios.put<ComapnyModel>(
-      appConfig.adminUpdateCompanyUrl,
-      company
-    );
-    const updatedCompany = response.data;
-    adminStore.dispatch(updateCompanyAction(updatedCompany));
+    await axios.put<ComapnyModel>(appConfig.adminUpdateCompanyUrl, company);
+    adminStore.dispatch(updateCompanyAction(company));
   }
 
   public async deleteCompany(companyId: number): Promise<void> {
-    await axios.delete(appConfig.adminDeleteCompanyUrl+"?companyId=" + companyId);
+    await axios.delete(appConfig.adminDeleteCompanyUrl + companyId);
     adminStore.dispatch(deleteCompanyAction(companyId));
   }
 
@@ -52,28 +44,26 @@ class AdminService {
 
   public async getOneCompany(companyId: number): Promise<ComapnyModel> {
     const response = await axios.get<ComapnyModel>(
-      appConfig.adminGetOneCompanyUrl + "?companyId=" + companyId
+      appConfig.adminGetOneCompanyUrl + companyId
     );
     const updatedCompany = response.data;
     return updatedCompany;
   }
 
+  public async getCompanyCount(): Promise<number> {
+    const response = await axios.get<number>(appConfig.adminGetCompanyCountUrl);
+    const companyId = response.data;
+    return companyId;
+  }
+
   async addCustomer(customer: CustomerModel): Promise<void> {
-    const response = await axios.post<ComapnyModel>(
-      appConfig.adminAddCustomerUrl,
-      customer
-    );
-    const addedCustomer = response.data;
-    adminStore.dispatch(addCustomerAction(addedCustomer));
+    await axios.post<ComapnyModel>(appConfig.adminAddCustomerUrl, customer);
+    adminStore.dispatch(addCustomerAction(customer));
   }
 
   public async updateCustomer(customer: CustomerModel): Promise<void> {
-    const response = await axios.put<ComapnyModel>(
-      appConfig.adminUpdateCompanyUrl + customer.id,
-      customer
-    );
-    const updatedCustomer = response.data;
-    adminStore.dispatch(updateCustomerAction(updatedCustomer));
+    await axios.put<ComapnyModel>(appConfig.adminUpdateCustomerUrl, customer);
+    adminStore.dispatch(updateCustomerAction(customer));
   }
 
   public async deleteCustomer(customerId: number): Promise<void> {
@@ -95,6 +85,12 @@ class AdminService {
 
   public async getOneCustomer(customerId: number): Promise<CustomerModel> {
     return adminStore.getState().customer.find((p) => p.id === customerId);
+  }
+
+  public async getCustomerCount():Promise<number>{
+    const response = await axios.get<number>(appConfig.adminGetCustomerCountUrl)
+    const customerId = response.data;
+    return customerId;
   }
 }
 

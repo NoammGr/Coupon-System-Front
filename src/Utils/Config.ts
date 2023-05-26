@@ -9,14 +9,16 @@ class DevelopmentConfig extends Config {
   // admin
   adminAddCompanyUrl = "http://localhost:8080/admin/api/add-company";
   adminUpdateCompanyUrl = "http://localhost:8080/admin/api/update-company";
-  adminDeleteCompanyUrl = "http://localhost:8080/admin/api/delete-company";
+  adminDeleteCompanyUrl = "http://localhost:8080/admin/api/delete-company?companyId=";
   adminGetAllCompaniesUrl = "http://localhost:8080/admin/api/get-all-companies";
-  adminGetOneCompanyUrl = "http://localhost:8080/admin/api/get-one-company";
+  adminGetOneCompanyUrl = "http://localhost:8080/admin/api/get-one-company?companyId=";
   adminAddCustomerUrl = "http://localhost:8080/admin/api/add-customer";
   adminUpdateCustomerUrl = "http://localhost:8080/admin/api/update-customer";
-  adminDeleteCustomerUrl = "http://localhost:8080/admin/api/delete-customer";
+  adminDeleteCustomerUrl = "http://localhost:8080/admin/api/delete-customer?customerId=";
   adminGetAllCustomersUrl = "http://localhost:8080/admin/api/get-all-customers";
-  adminGetOneCustomerUrl = "http://localhost:8080/admin/api/get-one-customer";
+  adminGetOneCustomerUrl = "http://localhost:8080/admin/api/get-one-customer?customerId=";
+  adminGetCompanyCountUrl = "http://localhost:8080/admin/api/get-company-number";
+  adminGetCustomerCountUrl = "http://localhost:8080/admin/api/get-customer-number";
   // comapny
   companyAddCouponUrl = "http://localhost:8080/company/api/add-coupon";
   companyUpdateCouponUrl = "http://localhost:8080/company/api/update-coupon";
@@ -43,14 +45,16 @@ class ProductionConfig extends Config {
   // admin
   adminAddCompanyUrl = "http://localhost:8080/admin/api/add-company";
   adminUpdateCompanyUrl = "http://localhost:8080/admin/api/update-company";
-  adminDeleteCompanyUrl = "http://localhost:8080/admin/api/delete-company";
+  adminDeleteCompanyUrl = "http://localhost:8080/admin/api/delete-company?companyId=";
   adminGetAllCompaniesUrl = "http://localhost:8080/admin/api/get-all-companies";
-  adminGetOneCompanyUrl = "http://localhost:8080/admin/api/get-one-company";
+  adminGetOneCompanyUrl = "http://localhost:8080/admin/api/get-one-company?companyId=";
   adminAddCustomerUrl = "http://localhost:8080/admin/api/add-customer";
   adminUpdateCustomerUrl = "http://localhost:8080/admin/api/update-customer";
-  adminDeleteCustomerUrl = "http://localhost:8080/admin/api/delete-customer";
+  adminDeleteCustomerUrl = "http://localhost:8080/admin/api/delete-customer?customerId=";
   adminGetAllCustomersUrl = "http://localhost:8080/admin/api/get-all-customers";
-  adminGetOneCustomerUrl = "http://localhost:8080/admin/api/get-one-customer";
+  adminGetOneCustomerUrl = "http://localhost:8080/admin/api/get-one-customer?customerId=";
+  adminGetCompanyCountUrl = "http://localhost:8080/admin/api/get-company-number";
+  adminGetCustomerCountUrl = "http://localhost:8080/admin/api/get-customer-number";
   // comapny
   companyAddCouponUrl = "http://localhost:8080/company/api/add-coupon";
   companyUpdateCouponUrl = "http://localhost:8080/company/api/update-coupon";

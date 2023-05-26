@@ -1,0 +1,7 @@
+.AddCustomerButton {
+    position: absolute;
+    right: 4.5%;
+    top: 18%;
+    transform: scale(1.5);
+    text-decoration: none;
+  }

@@ -10,14 +10,14 @@ function ManageCompanies(): JSX.Element {
   const [companies, setCompanies] = useState<CompanyModel[]>([]);
 
   useEffect(() => {
-    adminService.getAllCompanies().then(
-      (arr) => {
+    adminService
+      .getAllCompanies()
+      .then((arr) => {
         setCompanies(arr);
-      },
-      (error: any) => {
+      })
+      .catch((error: any) => {
         notificationService.error(error.response.data.message);
-      }
-    );
+      });
   }, []);
 
   return (

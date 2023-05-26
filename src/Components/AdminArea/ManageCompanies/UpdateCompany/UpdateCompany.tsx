@@ -55,6 +55,7 @@ function UpdateCompany(): JSX.Element {
       console.dir(error.response.data.message);
     }
   }
+
   if (!oldCompany) {
     return (
       <div className="UpdateCompany">
