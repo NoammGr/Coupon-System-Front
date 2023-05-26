@@ -44,6 +44,10 @@ function UpdateCustomer(): JSX.Element {
       <form onSubmit={handleSubmit(send)}>
         <h2>Update customer:</h2>
 
+        <label>Customer id:</label>
+        <input type="number" {...register("id")} disabled />
+        <span>{formState.errors?.id?.message}</span>
+
         <label>First name:</label>
         <input
           type="text"
