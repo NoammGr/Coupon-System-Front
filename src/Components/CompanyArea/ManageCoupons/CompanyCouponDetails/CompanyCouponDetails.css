@@ -1,0 +1,9 @@
+.CompanyCouponDetails {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  overflow: auto;
+}
+.DetailsImg {
+  height: 300px;
+  width: auto;
+  box-sizing: border-box;
+}

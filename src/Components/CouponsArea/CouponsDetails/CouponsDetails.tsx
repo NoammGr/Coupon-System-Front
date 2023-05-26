@@ -27,7 +27,7 @@ function CouponsDetails(): JSX.Element {
         setImage(couponImage);
       })
       .catch((error) => notificationService.error(error));
-  });
+  }, [couponId]);
   return (
     <div className="CouponsDetails">
       <h3>Coupon details :</h3>
@@ -45,7 +45,7 @@ function CouponsDetails(): JSX.Element {
           <br />
           <br />
           <br />
-          <NavLink to={"/coupons"}>Return to products</NavLink>
+          <NavLink to={"/coupons"}>Return to all coupons</NavLink>
         </span>
       )}
     </div>

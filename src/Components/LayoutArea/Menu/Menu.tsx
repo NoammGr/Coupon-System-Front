@@ -21,8 +21,6 @@ function Menu(): JSX.Element {
 
   const toggleMenu = (): void => {
     setUser(authStore.getState().credentials);
-    console.log("User state updated:", user);
-    console.log(user);
     setIsOpen(!isOpen);
   };
 

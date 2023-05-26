@@ -8,7 +8,7 @@ interface CompanyCardProps {
 
 function CompanyCard(props: CompanyCardProps): JSX.Element {
   return (
-    <div className="ProductCard Box">
+    <div className="CompanyCard Box">
       <NavLink to={"/admin/api/company/details/" + props.company.id}>
         <h2>{props.company.name}</h2>
       </NavLink>

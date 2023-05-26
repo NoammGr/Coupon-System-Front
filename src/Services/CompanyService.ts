@@ -28,17 +28,12 @@ class CompanyService {
     formData.append("price", coupon.price.toString());
     formData.append("image", coupon.image as File);
     formData.append("customers", coupon.customers?.toString());
-    const response = await axios.post<CouponModel>(
-      appConfig.companyAddCouponUrl,
-      formData,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      }
-    );
-    const addedCoupon = response.data;
-    companyStore.dispatch(addCouponAction(addedCoupon));
+    await axios.post<CouponModel>(appConfig.companyAddCouponUrl, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    companyStore.dispatch(addCouponAction(coupon));
   }
 
   public async updateCoupon(coupon: CouponModel): Promise<void> {
@@ -53,13 +48,13 @@ class CompanyService {
     formData.append("amount", coupon.amount.toString());
     formData.append("price", coupon.price.toString());
     formData.append("image", coupon.image as File);
-    formData.append("customers", (coupon.customers = null));
-    const response = await axios.put<CouponModel>(
-      appConfig.companyUpdateCouponUrl + coupon.id,
-      formData
-    );
-    const updatedProduct = response.data;
-    companyStore.dispatch(updateCouponAction(updatedProduct));
+    formData.append("customers", coupon.customers?.toString());
+    await axios.put<CouponModel>(appConfig.companyUpdateCouponUrl, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    companyStore.dispatch(updateCouponAction(coupon));
   }
 
   public async deleteCoupon(couponId: number): Promise<void> {
@@ -67,10 +62,10 @@ class CompanyService {
     companyStore.dispatch(deleteCouponAction(couponId));
   }
 
-  public async getCompanyCoupons(): Promise<CouponModel[]> {
+  public async getCompanyCoupons(companyId: number): Promise<CouponModel[]> {
     if (companyStore.getState().coupon.length === 0) {
       const response = await axios.get<CouponModel[]>(
-        appConfig.companyGetAllCouponsUrl
+        appConfig.companyGetAllCouponsUrl + companyId
       );
       const coupon = response.data;
       companyStore.dispatch(getCompanyCouponsAction(coupon));
@@ -121,6 +116,19 @@ class CompanyService {
     );
     const company = response.data;
     return company;
+  }
+
+  public async getCouponCount(): Promise<number> {
+    const response = await axios.get(appConfig.companyGetCouponCountUrl);
+    const couponId = response.data;
+    return couponId;
+  }
+  public async getOneCoupon(couponId: number): Promise<CouponModel> {
+    const response = await axios.get(
+      appConfig.companyGetOneCouponUrl + couponId
+    );
+    const coupon = response.data;
+    return coupon;
   }
 }
 const companyService = new CompanyService();

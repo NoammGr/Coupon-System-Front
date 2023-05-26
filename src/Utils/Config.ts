@@ -22,11 +22,13 @@ class DevelopmentConfig extends Config {
   // comapny
   companyAddCouponUrl = "http://localhost:8080/company/api/add-coupon";
   companyUpdateCouponUrl = "http://localhost:8080/company/api/update-coupon";
-  companyDeleteCouponUrl = "http://localhost:8080/company/api/delete-coupon";
-  companyGetAllCouponsUrl = "http://localhost:8080/company/api/get-all-company-coupons";
+  companyDeleteCouponUrl = "http://localhost:8080/company/api/delete-coupon?couponId=";
+  companyGetAllCouponsUrl = "http://localhost:8080/company/api/get-all-company-coupons?companyId=";
   companyGetAllCouponsByCategoryUrl = "http://localhost:8080/company/api/get-all-coupons-category";
   companyGetAllCouponsByMaxPriceUrl = "http://localhost:8080/company/api/get-all-coupons-maxPrice";
-  companyGetCompanyDetailsUrl = "http://localhost:8080/company/api/get-company-details";
+  companyGetCompanyDetailsUrl = "http://localhost:8080/company/api/get-company-details?companyId=";
+  companyGetCouponCountUrl = "http://localhost:8080/company/api/get-coupon-number"
+  companyGetOneCouponUrl = "http://localhost:8080/company/api/get-company-coupon?couponId="
   // customer
   customerPurchaseCouponUrl = "http://localhost:8080/customer/api/coupon-purchase";
   customerGetCustomerCouponsUrl = "http://localhost:8080/customer/api/get-customer-coupons";
@@ -58,11 +60,13 @@ class ProductionConfig extends Config {
   // comapny
   companyAddCouponUrl = "http://localhost:8080/company/api/add-coupon";
   companyUpdateCouponUrl = "http://localhost:8080/company/api/update-coupon";
-  companyDeleteCouponUrl = "http://localhost:8080/company/api/delete-coupon";
-  companyGetAllCouponsUrl = "http://localhost:8080/company/api/get-all-company-coupons";
+  companyDeleteCouponUrl = "http://localhost:8080/company/api/delete-coupon?couponId=";
+  companyGetAllCouponsUrl = "http://localhost:8080/company/api/get-all-company-coupons?companyId=";
   companyGetAllCouponsByCategoryUrl = "http://localhost:8080/company/api/get-all-coupons-category";
   companyGetAllCouponsByMaxPriceUrl = "http://localhost:8080/company/api/get-all-coupons-maxPrice";
-  companyGetCompanyDetailsUrl = "http://localhost:8080/company/api/get-company-details";
+  companyGetCompanyDetailsUrl = "http://localhost:8080/company/api/get-company-details?companyId=";
+  companyGetCouponCountUrl = "http://localhost:8080/company/api/get-coupon-number"
+  companyGetOneCouponUrl = "http://localhost:8080/company/api/get-company-coupon?couponId="
   // customer
   customerPurchaseCouponUrl = "http://localhost:8080/customer/api/coupon-purchase";
   customerGetCustomerCouponsUrl = "http://localhost:8080/customer/api/get-customer-coupons";

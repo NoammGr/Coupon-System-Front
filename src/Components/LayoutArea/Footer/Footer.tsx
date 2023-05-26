@@ -3,7 +3,7 @@ import "./Footer.css";
 function Footer(): JSX.Element {
   return (
     <div className="Footer">
-      <p>All rights reserved to Noam Greedi &copy;</p>
+      <p>All rights reserved &copy;</p>
     </div>
   );
 }

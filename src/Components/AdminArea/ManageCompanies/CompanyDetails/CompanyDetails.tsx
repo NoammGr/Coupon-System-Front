@@ -38,7 +38,7 @@ function CompanyDetails(): JSX.Element {
   }
 
   return (
-    <div className="CompanyDetails">
+    <div className="CompanyDetails Box">
       <h2>Company details :</h2>
       {company && (
         <span>

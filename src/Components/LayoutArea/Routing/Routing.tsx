@@ -7,7 +7,6 @@ import PageNotFound from "../PageNotFound/PageNotFound";
 import CouponsList from "../../CouponsArea/CouponsList/CouponsList";
 import CouponsDetails from "../../CouponsArea/CouponsDetails/CouponsDetails";
 import AddCompany from "../../AdminArea/ManageCompanies/AddCompany/AddCompany";
-import AddCoupon from "../../CompanyArea/AddCoupon/AddCoupon";
 import UpdateCompany from "../../AdminArea/ManageCompanies/UpdateCompany/UpdateCompany";
 import ManageCompanies from "../../AdminArea/ManageCompanies/ManageCompanies";
 import ManageCustomers from "../../AdminArea/ManageCustomers/ManageCustomers";
@@ -15,6 +14,11 @@ import CompanyDetails from "../../AdminArea/ManageCompanies/CompanyDetails/Compa
 import AddCustomer from "../../AdminArea/ManageCustomers/AddCustomer/AddCustomer";
 import UpdateCustomer from "../../AdminArea/ManageCustomers/UpdateCustomer/UpdateCustomer";
 import CustomerDetails from "../../AdminArea/ManageCustomers/CustomerDetails/CustomerDetails";
+import ManageCoupons from "../../CompanyArea/ManageCoupons/ManageCoupons";
+import GetCompanyDetailes from "../../CompanyArea/GetCompanyDetailes/GetCompanyDetailes";
+import UpdateCoupon from "../../CompanyArea/ManageCoupons/UpdateCoupon/UpdateCoupon";
+import CompanyCouponDetails from "../../CompanyArea/ManageCoupons/CompanyCouponDetails/CompanyCouponDetails";
+import AddCoupon from "../../CompanyArea/ManageCoupons/AddCoupon/AddCoupon";
 
 function Routing(): JSX.Element {
   return (
@@ -33,8 +37,8 @@ function Routing(): JSX.Element {
         <Route path="/coupons/details/:couponId" element={<CouponsDetails />} />
 
         {/* Admin Area: */}
-        <Route path="/admin/api/manage-companies"element={<ManageCompanies/>}/>
-        <Route path="/admin/api/manage-customers"element={<ManageCustomers/>}/>
+        <Route path="/admin/api/manage-companies"element={<ManageCompanies />}/>
+        <Route path="/admin/api/manage-customers"element={<ManageCustomers />}/>
         <Route path="/admin/api/company/details/:companyId" element={<CompanyDetails />} />
         <Route path="/admin/api/customer/details/:customerId" element={<CustomerDetails />} />
         
@@ -44,8 +48,14 @@ function Routing(): JSX.Element {
         <Route path="/admin/api/add-customer" element={<AddCustomer />} />
         <Route path="/admin/api/update-customer/:customerId" element={<UpdateCustomer />} />
 
+        {/* Company Area: */}
+        <Route path="/company/api/manage-coupons"element={<ManageCoupons />}/>
+        <Route path="/company/api/coupon/details/:couponId" element={<CompanyCouponDetails />} />
+        <Route path="/company/api/get-company-details" element={<GetCompanyDetailes />} />
+
         {/* Company Actions: */}
         <Route path="/company/api/add-coupon" element={<AddCoupon />} />
+        <Route path="/company/api/update-coupon/:couponId" element={<UpdateCoupon />} />
 
         {/* SERVER */}
         {/* Defulat Element */}
