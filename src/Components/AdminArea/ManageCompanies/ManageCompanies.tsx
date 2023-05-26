@@ -22,10 +22,11 @@ function ManageCompanies(): JSX.Element {
 
   return (
     <div className="ManageCompanies">
-      <NavLink className="AddCompanyButton" to={"/admin/api/add-company"}>
+      <NavLink className="AddCompanyButton Box" to={"/admin/api/add-company"}>
         Add company
       </NavLink>
       <br />
+
       {companies.length === 0 && <div>Loading ...</div>}
 
       {companies.map((c) => (

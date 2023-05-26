@@ -22,7 +22,7 @@ function ManageCustomers(): JSX.Element {
 
   return (
     <div className="ManageCustomers">
-      <NavLink className="AddCustomerButton" to={"/admin/api/add-customer"}>
+      <NavLink className="AddCustomerButton Box" to={"/admin/api/add-customer"}>
         Add customer
       </NavLink>
       <br />
