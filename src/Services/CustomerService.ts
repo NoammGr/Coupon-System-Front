@@ -27,25 +27,28 @@ class CustomerService {
   public async getCustomerCoupons(customerId: number): Promise<CouponModel[]> {
     if (customerStore.getState().coupon.length === 0) {
       const response = await axios.get<CouponModel[]>(
-        appConfig.customerGetCustomerCouponsUrl + customerId
+        appConfig.customerGetCustomerCouponsUrl + "?customerId=" + customerId
       );
-      const coupon = response.data;
-      customerStore.dispatch(getCustomerCouponsAction(coupon));
-      return coupon;
+      const coupons = response.data;
+      customerStore.dispatch(getCustomerCouponsAction(coupons));
+      return coupons;
     }
     return customerStore.getState().coupon;
   }
 
   public async getCustomerCouponsByCategory(
-    category: CategoryModel
+    category: CategoryModel,
+    customerId: number
   ): Promise<CouponModel[]> {
     if (customerStore.getState().coupon.length === 0) {
       const response = await axios.get<CouponModel[]>(
-        appConfig.companyGetAllCouponsByCategoryUrl
+        appConfig.customerGetcustomerCouponsByCategoryUrl +
+          "?category=" +
+          category +
+          "&customerId=" +
+          customerId
       );
-      const coupons = response.data.filter(
-        (coupon) => coupon.category === category
-      );
+      const coupons = response.data;
       customerStore.dispatch(getCustomerCouponsByCategoryAction(category));
       return coupons;
     }
@@ -55,11 +58,16 @@ class CustomerService {
   }
 
   public async getCustomerCouponsByMaxPrice(
-    maxPrice: number
+    maxPrice: number,
+    customerId: number
   ): Promise<CouponModel[]> {
     if (customerStore.getState().coupon.length === 0) {
       const response = await axios.get<CouponModel[]>(
-        appConfig.companyGetAllCouponsByMaxPriceUrl
+        appConfig.customerGetcustomerCouponsByMaxPriceUrl +
+          "?maxPrice=" +
+          maxPrice +
+          "&customerId=" +
+          customerId
       );
       const coupons = response.data.filter(
         (coupon) => coupon.price <= maxPrice

@@ -26,7 +26,7 @@ class DevelopmentConfig extends Config {
   companyGetAllCouponsUrl = "http://localhost:8080/company/api/get-all-company-coupons?companyId=";
   companyGetAllCouponsByCategoryUrl = "http://localhost:8080/company/api/get-all-coupons-category";
   companyGetAllCouponsByMaxPriceUrl = "http://localhost:8080/company/api/get-all-coupons-maxPrice";
-  companyGetCompanyDetailsUrl = "http://localhost:8080/company/api/get-company-details?companyId=";
+  companyGetCompanyDetailsUrl = "http://localhost:8080/company/api/get-company-details";
   companyGetCouponCountUrl = "http://localhost:8080/company/api/get-coupon-number"
   companyGetOneCouponUrl = "http://localhost:8080/company/api/get-company-coupon?couponId="
   // customer
@@ -64,7 +64,7 @@ class ProductionConfig extends Config {
   companyGetAllCouponsUrl = "http://localhost:8080/company/api/get-all-company-coupons?companyId=";
   companyGetAllCouponsByCategoryUrl = "http://localhost:8080/company/api/get-all-coupons-category";
   companyGetAllCouponsByMaxPriceUrl = "http://localhost:8080/company/api/get-all-coupons-maxPrice";
-  companyGetCompanyDetailsUrl = "http://localhost:8080/company/api/get-company-details?companyId=";
+  companyGetCompanyDetailsUrl = "http://localhost:8080/company/api/get-company-details";
   companyGetCouponCountUrl = "http://localhost:8080/company/api/get-coupon-number"
   companyGetOneCouponUrl = "http://localhost:8080/company/api/get-company-coupon?couponId="
   // customer

@@ -1,6 +1,10 @@
 import axios from "axios";
 import CouponModel from "../Models/CouponModel";
-import { couponsStore, getCouponsAction } from "../Redux/CouponState";
+import {
+  couponsStore,
+  getCouponImageAction,
+  getCouponsAction,
+} from "../Redux/CouponState";
 import appConfig from "../Utils/Config";
 
 class CouponService {
@@ -21,6 +25,7 @@ class CouponService {
   public async getCouponImage(couponId: number): Promise<string> {
     const response = await axios.get(appConfig.couponsGetImageUrl + couponId);
     const responseString = response.data;
+    couponsStore.dispatch(getCouponImageAction(responseString));
     return responseString;
   }
 }
