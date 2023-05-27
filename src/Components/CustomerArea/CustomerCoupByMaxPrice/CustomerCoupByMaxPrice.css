@@ -1,0 +1,26 @@
+.CustomerCoupByMaxPrice > form {
+  width: 250px;
+  text-align: left;
+  margin: auto;
+}
+.CustomerCoupByMaxPrice input,
+.CustomerCoupByMaxPrice button {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+.CustomerCoupByMaxPrice h2 {
+  text-align: center;
+}
+
+.CustomerCoupByMaxPrice span {
+  position: absolute;
+  color: red;
+  margin-left: 10px;
+}
+.CustomerCoupByMaxPrice select {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  height: 23px;
+}

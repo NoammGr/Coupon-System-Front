@@ -1,0 +1,23 @@
+.MyCouponCard {
+  width: 300px;
+  display: inline-flex;
+  text-align: left;
+  background-image: linear-gradient(90deg, lightgray, white);
+  position: relative;
+}
+
+.MyCouponCard img {
+  max-width: 50px;
+  height: auto;
+  border: 1px solid black;
+  border-radius: 10px;
+  vertical-align: middle;
+  position: absolute;
+  top: 50%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+}
+
+.MyCouponCard > div:last-child {
+  margin-left: auto;
+}

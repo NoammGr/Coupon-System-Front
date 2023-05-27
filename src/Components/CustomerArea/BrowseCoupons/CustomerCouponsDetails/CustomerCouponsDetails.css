@@ -1,0 +1,13 @@
+.CustomerCouponsDetails {
+	
+}
+.CustomerCouponsDetails {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    overflow: auto;
+  }
+  .CustomerDetailsImg {
+    height: 300px;
+    width: auto;
+    box-sizing: border-box;
+  }
+  

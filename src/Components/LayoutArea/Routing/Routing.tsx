@@ -21,6 +21,13 @@ import CompanyCouponDetails from "../../CompanyArea/ManageCoupons/CompanyCouponD
 import AddCoupon from "../../CompanyArea/ManageCoupons/AddCoupon/AddCoupon";
 import CouponsByCategory from "../../CompanyArea/CouponsByCategory/CouponsByCategory";
 import CouponsByMaxPrice from "../../CompanyArea/CouponsByMaxPrice/CouponsByMaxPrice";
+import BrowseCoupons from "../../CustomerArea/BrowseCoupons/BrowseCoupons";
+import CustomerCouponsDetails from "../../CustomerArea/BrowseCoupons/CustomerCouponsDetails/CustomerCouponsDetails";
+import MyCoupons from "../../CustomerArea/MyCoupons/MyCoupons";
+import MyCouponDetails from "../../CustomerArea/MyCoupons/MyCouponDetails/MyCouponDetails";
+import MyCustomerDetails from "../../CustomerArea/MyCustomerDetails/MyCustomerDetails";
+import CustomerCoupByCategory from "../../CustomerArea/CustomerCoupByCategory/CustomerCoupByCategory";
+import CustomerCoupByMaxPrice from "../../CustomerArea/CustomerCoupByMaxPrice/CustomerCoupByMaxPrice";
 
 function Routing(): JSX.Element {
   return (
@@ -60,6 +67,17 @@ function Routing(): JSX.Element {
         {/* Company Actions: */}
         <Route path="/company/api/add-coupon" element={<AddCoupon />} />
         <Route path="/company/api/update-coupon/:couponId" element={<UpdateCoupon />} />
+
+        {/* Customer Area: */}
+        <Route path="/customer/api/browse-coupons" element={<BrowseCoupons/>}/>
+        <Route path="/customer/api/browse-coupons/coupon/:couponId" element={<CustomerCouponsDetails/>}/>
+        <Route path="/customer/api/my-coupons" element={<MyCoupons/>}/>
+        <Route path="/customer/api/my-coupons/coupon/:couponId" element={<MyCouponDetails/>}/>
+        <Route path="/customer/api/customer-details" element={<MyCustomerDetails/>}/>
+        <Route path="/customer/api/get-all-coupons-category" element={<CustomerCoupByCategory/>}/>
+        <Route path="/customer/api/get-all-coupons-max-price" element={<CustomerCoupByMaxPrice/>}/>
+
+        {/* Customer Actions: */}
 
         {/* SERVER */}
         {/* Defulat Element */}

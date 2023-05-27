@@ -3,14 +3,17 @@ import CredentialsModel from "../../../Models/CredentialsModel";
 import authService from "../../../Services/AuthService";
 import notificationService from "../../../Services/NotificationService";
 import "./Login.css";
+import { useNavigate } from "react-router-dom";
 
 function Login(): JSX.Element {
+  const navigate = useNavigate();
   const { register, handleSubmit } = useForm<CredentialsModel>();
 
   async function send(credentials: CredentialsModel) {
     try {
       await authService.login(credentials);
       notificationService.success("Welcome Back !");
+      navigate("/home");
     } catch (error: any) {
       notificationService.error(error.response.data.message);
     }

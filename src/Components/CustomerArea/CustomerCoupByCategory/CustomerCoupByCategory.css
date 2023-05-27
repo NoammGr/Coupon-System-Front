@@ -1,0 +1,26 @@
+.CustomerCoupByCategory > form {
+  width: 250px;
+  text-align: left;
+  margin: auto;
+}
+.CustomerCoupByCategory input,
+.CustomerCoupByCategory button {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+.CustomerCoupByCategory h2 {
+  text-align: center;
+}
+
+.CustomerCoupByCategory span {
+  position: absolute;
+  color: red;
+  margin-left: 10px;
+}
+.CustomerCoupByCategory select {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  height: 23px;
+}

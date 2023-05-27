@@ -18,15 +18,17 @@ function CouponsDetails(): JSX.Element {
       .then((c) => {
         setCoupon(c);
       })
-      .catch((error) => {
-        notificationService.error(error);
+      .catch((error: any) => {
+        notificationService.error(error.response.data.message);
       });
     couponService
       .getCouponImage(couponId)
       .then((couponImage) => {
         setImage(couponImage);
       })
-      .catch((error) => notificationService.error(error));
+      .catch((error: any) => {
+        notificationService.error(error.response.data.message);
+      });
   }, [couponId]);
   return (
     <div className="CouponsDetails">
@@ -34,6 +36,7 @@ function CouponsDetails(): JSX.Element {
       {coupon && (
         <span>
           <h3>Name: {coupon.title}</h3>
+          <h3>Category: ${coupon.category}</h3>
           <h3>Price: ${coupon.price}</h3>
           <h3>Stock: {coupon.amount}</h3>
           <h3>Description: {coupon.description}</h3>
