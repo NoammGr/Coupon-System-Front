@@ -9,6 +9,12 @@ function CompanyMenu(): JSX.Element {
           <NavLink to={"/company/api/manage-coupons"}>Manage Coupons</NavLink>
         </li>
         <li className="Menu-item">
+          <NavLink to={"/company/api/get-all-coupons-maxPrice"}>Filter by max price</NavLink>
+        </li>
+        <li className="Menu-item">
+          <NavLink to={"/company/api/get-all-coupons-category"}>Filter by category</NavLink>
+        </li>
+        <li className="Menu-item">
           <NavLink to={"/company/api/get-company-details/"}>Company details</NavLink>
         </li>
       </ul>
