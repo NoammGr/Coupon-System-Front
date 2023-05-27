@@ -67,9 +67,9 @@ class CompanyService {
       const response = await axios.get<CouponModel[]>(
         appConfig.companyGetAllCouponsUrl + companyId
       );
-      const coupon = response.data;
-      companyStore.dispatch(getCompanyCouponsAction(coupon));
-      return coupon;
+      const coupons = response.data;
+      companyStore.dispatch(getCompanyCouponsAction(coupons));
+      return coupons;
     }
     return companyStore.getState().coupon;
   }

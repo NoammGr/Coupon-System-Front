@@ -90,7 +90,7 @@ export function productsReducer(
       if (indexToDelete >= 0) newState.coupon.splice(indexToDelete, 1);
       break;
     case CompanyActionType.GetCompanyCoupons:
-      newState.company = action.payload;
+      newState.coupon = action.payload;
       break;
     case CompanyActionType.GetCompanyDetails:
       newState.company.find((c) => c.id === action.payload);
