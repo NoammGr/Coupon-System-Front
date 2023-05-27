@@ -2,10 +2,10 @@ import axios from "axios";
 import appConfig from "../Utils/Config";
 import {
   customerStore,
-  getcustomerCouponsAction,
-  getcustomerCouponsByCategoryAction,
-  getcustomerCouponsByMaxPriceAction,
-  getcustomerDetailsAction,
+  getCustomerCouponsAction,
+  getCustomerCouponsByCategoryAction,
+  getCustomerCouponsByMaxPriceAction,
+  getCustomerDetailsAction,
   purchaseCouponAction,
 } from "../Redux/CustomerState";
 import CouponModel from "../Models/CouponModel";
@@ -30,7 +30,7 @@ class CustomerService {
         appConfig.customerGetCustomerCouponsUrl + customerId
       );
       const coupon = response.data;
-      customerStore.dispatch(getcustomerCouponsAction(coupon));
+      customerStore.dispatch(getCustomerCouponsAction(coupon));
       return coupon;
     }
     return customerStore.getState().coupon;
@@ -46,7 +46,7 @@ class CustomerService {
       const coupons = response.data.filter(
         (coupon) => coupon.category === category
       );
-      customerStore.dispatch(getcustomerCouponsByCategoryAction(category));
+      customerStore.dispatch(getCustomerCouponsByCategoryAction(category));
       return coupons;
     }
     return customerStore
@@ -64,7 +64,7 @@ class CustomerService {
       const coupons = response.data.filter(
         (coupon) => coupon.price <= maxPrice
       );
-      customerStore.dispatch(getcustomerCouponsByMaxPriceAction(maxPrice));
+      customerStore.dispatch(getCustomerCouponsByMaxPriceAction(maxPrice));
       return coupons;
     }
     return customerStore
@@ -72,12 +72,12 @@ class CustomerService {
       .coupon.filter((coupon) => coupon.price <= maxPrice);
   }
 
-  public async getCompanyDetails(customerId: number): Promise<CustomerModel> {
+  public async getCustomerDetails(customerId: number): Promise<CustomerModel> {
     const response = await axios.get<CustomerModel>(
-      appConfig.companyGetCompanyDetailsUrl + customerId
+      appConfig.customerGetcustomerDetailsUrl + "?customerId=" + customerId
     );
     const customer = response.data;
-    customerStore.dispatch(getcustomerDetailsAction(customer));
+    customerStore.dispatch(getCustomerDetailsAction(customer));
     return customer;
   }
 }

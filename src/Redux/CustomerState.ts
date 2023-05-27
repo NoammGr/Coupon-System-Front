@@ -1,5 +1,4 @@
 import { createStore } from "redux";
-import ComapnyModel from "../Models/CompanyModel";
 import CouponModel from "../Models/CouponModel";
 import CustomerModel from "../Models/CustomerModel";
 import CategoryModel from "../Models/CategoryModel";
@@ -26,7 +25,7 @@ export function purchaseCouponAction(coupon: CouponModel): customerAction {
     payload: coupon,
   };
 }
-export function getcustomerCouponsAction(
+export function getCustomerCouponsAction(
   coupons: CouponModel[]
 ): customerAction {
   return {
@@ -34,7 +33,7 @@ export function getcustomerCouponsAction(
     payload: coupons,
   };
 }
-export function getcustomerCouponsByCategoryAction(
+export function getCustomerCouponsByCategoryAction(
   category: CategoryModel
 ): customerAction {
   return {
@@ -42,7 +41,7 @@ export function getcustomerCouponsByCategoryAction(
     payload: category,
   };
 }
-export function getcustomerCouponsByMaxPriceAction(
+export function getCustomerCouponsByMaxPriceAction(
   maxPrice: number
 ): customerAction {
   return {
@@ -50,7 +49,9 @@ export function getcustomerCouponsByMaxPriceAction(
     payload: maxPrice,
   };
 }
-export function getcustomerDetailsAction(customer: CustomerModel): customerAction {
+export function getCustomerDetailsAction(
+  customer: CustomerModel
+): customerAction {
   return {
     type: customerActionType.GetCustomerCoupons,
     payload: customer,
