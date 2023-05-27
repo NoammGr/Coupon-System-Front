@@ -1,12 +1,12 @@
 import "./CouponsByCategory.css";
 import { useEffect, useState } from "react";
-import CouponModel from "../../../../Models/CouponModel";
-import companyService from "../../../../Services/CompanyService";
-import { authStore } from "../../../../Redux/AuthState";
-import notificationService from "../../../../Services/NotificationService";
+import CouponModel from "../../../Models/CouponModel";
+import companyService from "../../../Services/CompanyService";
+import { authStore } from "../../../Redux/AuthState";
+import notificationService from "../../../Services/NotificationService";
 import { useForm } from "react-hook-form";
-import CouponCard from "../CouponCard/CouponCard";
-import CategoryModel from "../../../../Models/CategoryModel";
+import CouponCard from "../ManageCoupons/CouponCard/CouponCard";
+import CategoryModel from "../../../Models/CategoryModel";
 import { NavLink } from "react-router-dom";
 
 function CouponsByCategory(): JSX.Element {

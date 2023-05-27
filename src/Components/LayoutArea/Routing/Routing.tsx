@@ -19,8 +19,8 @@ import GetCompanyDetailes from "../../CompanyArea/GetCompanyDetailes/GetCompanyD
 import UpdateCoupon from "../../CompanyArea/ManageCoupons/UpdateCoupon/UpdateCoupon";
 import CompanyCouponDetails from "../../CompanyArea/ManageCoupons/CompanyCouponDetails/CompanyCouponDetails";
 import AddCoupon from "../../CompanyArea/ManageCoupons/AddCoupon/AddCoupon";
-import CouponsByCategory from "../../CompanyArea/ManageCoupons/CouponsByCategory/CouponsByCategory";
-import CouponsByMaxPrice from "../../CompanyArea/ManageCoupons/CouponsByMaxPrice/CouponsByMaxPrice";
+import CouponsByCategory from "../../CompanyArea/CouponsByCategory/CouponsByCategory";
+import CouponsByMaxPrice from "../../CompanyArea/CouponsByMaxPrice/CouponsByMaxPrice";
 
 function Routing(): JSX.Element {
   return (

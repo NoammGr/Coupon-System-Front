@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import "./CouponsByMaxPrice.css";
-import CouponModel from "../../../../Models/CouponModel";
-import companyService from "../../../../Services/CompanyService";
-import { authStore } from "../../../../Redux/AuthState";
-import notificationService from "../../../../Services/NotificationService";
+import CouponModel from "../../../Models/CouponModel";
+import companyService from "../../../Services/CompanyService";
+import { authStore } from "../../../Redux/AuthState";
+import notificationService from "../../../Services/NotificationService";
 import { useForm } from "react-hook-form";
-import CouponCard from "../CouponCard/CouponCard";
+import CouponCard from "../ManageCoupons/CouponCard/CouponCard";
 import { NavLink } from "react-router-dom";
 
 function CouponsByMaxPrice(): JSX.Element {
