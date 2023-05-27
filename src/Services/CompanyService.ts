@@ -118,7 +118,7 @@ class CompanyService {
 
   public async getCompanyDetails(companyId: number): Promise<ComapnyModel> {
     const response = await axios.get<CompanyModel>(
-      appConfig.companyGetCompanyDetailsUrl + companyId
+      appConfig.companyGetCompanyDetailsUrl + "?companyId=" + companyId
     );
     const company = response.data;
     return company;
