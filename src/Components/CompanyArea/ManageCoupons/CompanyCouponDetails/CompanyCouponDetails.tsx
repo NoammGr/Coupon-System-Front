@@ -65,7 +65,7 @@ function CompanyCouponDetails(): JSX.Element {
           <br />
           <br />
           <br />
-          <NavLink to={"/coupons"}>Return to coupons manager</NavLink>
+          <NavLink to={"/company/api/manage-coupons"}>Return to coupons manager</NavLink>
           <span> | </span>
           <NavLink to={"/company/api/update-coupon/" + couponId}>
             Update
