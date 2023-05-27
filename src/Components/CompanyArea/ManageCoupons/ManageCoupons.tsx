@@ -26,6 +26,12 @@ function ManageCoupons(): JSX.Element {
       <NavLink className="AddCouponButton Box" to={"/company/api/add-coupon"}>
         Add coupon
       </NavLink>
+      <NavLink className={"FilterByMaxPrice Box"} to={"/company/api/get-all-coupons-maxPrice"}>
+        Filter by max price
+      </NavLink>
+      <NavLink className={"FilterByCategory Box"} to={"/company/api/get-all-coupons-category"}>
+        Filter by category
+      </NavLink>
 
       {coupons.length === 0 && <div>Loading ...</div>}
 

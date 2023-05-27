@@ -19,6 +19,8 @@ import GetCompanyDetailes from "../../CompanyArea/GetCompanyDetailes/GetCompanyD
 import UpdateCoupon from "../../CompanyArea/ManageCoupons/UpdateCoupon/UpdateCoupon";
 import CompanyCouponDetails from "../../CompanyArea/ManageCoupons/CompanyCouponDetails/CompanyCouponDetails";
 import AddCoupon from "../../CompanyArea/ManageCoupons/AddCoupon/AddCoupon";
+import CouponsByCategory from "../../CompanyArea/ManageCoupons/CouponsByCategory/CouponsByCategory";
+import CouponsByMaxPrice from "../../CompanyArea/ManageCoupons/CouponsByMaxPrice/CouponsByMaxPrice";
 
 function Routing(): JSX.Element {
   return (
@@ -52,6 +54,8 @@ function Routing(): JSX.Element {
         <Route path="/company/api/manage-coupons"element={<ManageCoupons />}/>
         <Route path="/company/api/coupon/details/:couponId" element={<CompanyCouponDetails />} />
         <Route path="/company/api/get-company-details" element={<GetCompanyDetailes />} />
+        <Route path="/company/api/get-all-coupons-category" element={<CouponsByCategory/>}/>
+        <Route path="/company/api/get-all-coupons-maxPrice" element={<CouponsByMaxPrice/>}/>
 
         {/* Company Actions: */}
         <Route path="/company/api/add-coupon" element={<AddCoupon />} />

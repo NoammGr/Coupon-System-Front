@@ -1,8 +1,22 @@
 .AddCouponButton {
-    position: absolute;
-    right: 1%;
-    top: 15%;
-    transform: scale(1);
-    text-decoration: none;
-  }
-  
+  position: absolute;
+  right: 1%;
+  top: 15%;
+  transform: scale(1);
+  text-decoration: none;
+}
+.FilterByMaxPrice {
+  position: absolute;
+  right: 1%;
+  top: 20%;
+  transform: scale(1);
+  text-decoration: none;
+}
+
+.FilterByCategory {
+  position: absolute;
+  right: 1%;
+  top: 25%;
+  transform: scale(1);
+  text-decoration: none;
+}

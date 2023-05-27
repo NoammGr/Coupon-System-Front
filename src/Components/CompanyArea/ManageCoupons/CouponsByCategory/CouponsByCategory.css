@@ -1,0 +1,26 @@
+.CouponsByCategoryForm > form {
+  width: 250px;
+  text-align: left;
+  margin: auto;
+}
+.CouponsByCategoryForm input,
+.CouponsByCategoryForm button {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+.CouponsByCategoryForm h2 {
+  text-align: center;
+}
+
+.CouponsByCategoryForm span {
+  position: absolute;
+  color: red;
+  margin-left: 10px;
+}
+.CouponsByCategoryForm select {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  height: 23px;
+}

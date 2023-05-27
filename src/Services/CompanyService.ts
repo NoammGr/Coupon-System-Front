@@ -67,23 +67,26 @@ class CompanyService {
       const response = await axios.get<CouponModel[]>(
         appConfig.companyGetAllCouponsUrl + companyId
       );
-      const coupons = response.data;
-      companyStore.dispatch(getCompanyCouponsAction(coupons));
-      return coupons;
+      const coupon = response.data;
+      companyStore.dispatch(getCompanyCouponsAction(coupon));
+      return coupon;
     }
     return companyStore.getState().coupon;
   }
 
   public async getCompanyCouponsByCategory(
-    category: CategoryModel
+    category: CategoryModel,
+    companyId: number
   ): Promise<CouponModel[]> {
     if (companyStore.getState().coupon.length === 0) {
       const response = await axios.get<CouponModel[]>(
-        appConfig.companyGetAllCouponsByCategoryUrl
+        appConfig.companyGetAllCouponsByCategoryUrl +
+          "?category=" +
+          category +
+          "&companyId=" +
+          companyId
       );
-      const coupons = response.data.filter(
-        (coupon) => coupon.category === category
-      );
+      const coupons = response.data;
       companyStore.dispatch(getCompanyCouponsByCategoryAction(category));
       return coupons;
     }
@@ -93,15 +96,18 @@ class CompanyService {
   }
 
   public async getCompanyCouponsByMaxPrice(
-    maxPrice: number
+    maxPrice: number,
+    companyId: number
   ): Promise<CouponModel[]> {
     if (companyStore.getState().coupon.length === 0) {
       const response = await axios.get<CouponModel[]>(
-        appConfig.companyGetAllCouponsByMaxPriceUrl
+        appConfig.companyGetAllCouponsByMaxPriceUrl +
+          "?maxPrice=" +
+          maxPrice +
+          "&companyId=" +
+          companyId
       );
-      const coupons = response.data.filter(
-        (coupon) => coupon.price <= maxPrice
-      );
+      const coupons = response.data;
       companyStore.dispatch(getCompanyCouponsByMaxPriceAction(maxPrice));
       return coupons;
     }

@@ -1,0 +1,26 @@
+.CouponsByMaxPriceForm > form {
+  width: 250px;
+  text-align: left;
+  margin: auto;
+}
+.CouponsByMaxPriceForm input,
+.CouponsByMaxPriceForm button {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+.CouponsByMaxPriceForm h2 {
+  text-align: center;
+}
+
+.CouponsByMaxPriceForm span {
+  position: absolute;
+  color: red;
+  margin-left: 10px;
+}
+.CouponsByMaxPriceForm select {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  height: 23px;
+}
