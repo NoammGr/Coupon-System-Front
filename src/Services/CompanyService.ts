@@ -8,6 +8,7 @@ import {
   getCompanyCouponsAction,
   getCompanyCouponsByCategoryAction,
   getCompanyCouponsByMaxPriceAction,
+  getCompanyDetailsAction,
   updateCouponAction,
 } from "../Redux/CompanyState";
 import CategoryModel from "../Models/CategoryModel";
@@ -121,6 +122,7 @@ class CompanyService {
       appConfig.companyGetCompanyDetailsUrl + "?companyId=" + companyId
     );
     const company = response.data;
+    companyStore.dispatch(getCompanyDetailsAction(companyId));
     return company;
   }
 
