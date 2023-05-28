@@ -37,6 +37,8 @@ function UpdateCoupon(): JSX.Element {
   }, [couponId, setValue]);
 
   async function send(coupon: CouponModel) {
+    coupon.image = (coupon.image as FileList)[0];
+    coupon.customers = [];
     try {
       await companyService.updateCoupon(coupon);
       notificationService.success("Coupon edited!");
