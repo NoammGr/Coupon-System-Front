@@ -6,7 +6,6 @@ import {
   getCustomerCouponsByCategoryAction,
   getCustomerCouponsByMaxPriceAction,
   getCustomerDetailsAction,
-  purchaseCouponAction,
 } from "../Redux/CustomerState";
 import CouponModel from "../Models/CouponModel";
 import CategoryModel from "../Models/CategoryModel";
@@ -17,11 +16,18 @@ class CustomerService {
     couponId: number,
     customerId: number
   ): Promise<void> {
-    const response = await axios.get<CouponModel>(
-      appConfig.customerGetCustomerCouponsUrl + couponId + customerId
+    await axios.post<CouponModel>(
+      appConfig.customerPurchaseCouponUrl +
+        "?CouponId=" +
+        couponId +
+        "&customerId=" +
+        customerId
     );
-    const coupon = response.data;
-    customerStore.dispatch(purchaseCouponAction(coupon));
+    const response = await axios.get<CouponModel[]>(
+      appConfig.customerGetCustomerCouponsUrl + "?customerId=" + customerId
+    );
+    const coupons = response.data;
+    customerStore.dispatch(getCustomerCouponsAction(coupons));
   }
 
   public async getCustomerCoupons(customerId: number): Promise<CouponModel[]> {
