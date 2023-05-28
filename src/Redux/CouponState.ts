@@ -40,9 +40,7 @@ export function couponsReducer(
       newState.coupons = action.payload;
       break;
     case CouponsActionType.GetImage:
-      console.log("action payload : " + action.payload);
       newState.image = action.payload;
-      console.log("newState image: " + newState.image);
       break;
   }
   return newState;
