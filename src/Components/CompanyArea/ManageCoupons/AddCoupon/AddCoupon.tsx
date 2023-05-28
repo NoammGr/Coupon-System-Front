@@ -28,7 +28,6 @@ function AddCoupon(): JSX.Element {
     coupon.company = authStore.getState().credentials.sub;
     coupon.image = (coupon.image as FileList)[0];
     coupon.customers = [];
-    console.log(coupon);
     try {
       await companyService.addCoupon(coupon);
       notificationService.success("Coupon added !");

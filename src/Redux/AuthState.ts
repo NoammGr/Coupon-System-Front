@@ -8,14 +8,10 @@ export class AuthState {
 
   constructor() {
     this.token = localStorage.getItem("token");
-    console.log(this.token);
     if (this.token) {
       console.log(this.token);
       const decodedToken: CredentialsModel = jwtDecode(this.token);
-      console.log(this.credentials);
       this.credentials = decodedToken;
-      console.log(this.credentials);
-      console.log("credentials object: ", this.credentials);
     }
   }
 }
@@ -44,7 +40,6 @@ export function authReducer(
   const newState = { ...currentState };
   switch (action.type) {
     case AuthActionType.Login:
-      console.log("Login action received with payload: ", action.payload);
       newState.token = action.payload;
       const decodedToken: CredentialsModel = jwtDecode(newState.token);
       newState.credentials = decodedToken;

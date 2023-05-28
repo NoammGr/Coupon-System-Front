@@ -18,7 +18,6 @@ function UpdateCoupon(): JSX.Element {
     companyService
       .getOneCoupon(couponId)
       .then((fetchCoupon) => {
-        console.log(fetchCoupon.image);
         setValue("id", fetchCoupon.id);
         setValue("company", authStore.getState().credentials.sub);
         setValue("category", fetchCoupon.category);
