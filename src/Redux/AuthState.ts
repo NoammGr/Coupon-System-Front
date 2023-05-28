@@ -9,7 +9,6 @@ export class AuthState {
   constructor() {
     this.token = localStorage.getItem("token");
     if (this.token) {
-      console.log(this.token);
       const decodedToken: CredentialsModel = jwtDecode(this.token);
       this.credentials = decodedToken;
     }
@@ -43,7 +42,6 @@ export function authReducer(
       newState.token = action.payload;
       const decodedToken: CredentialsModel = jwtDecode(newState.token);
       newState.credentials = decodedToken;
-      console.log("Decoded token: ", decodedToken);
       localStorage.setItem("token", newState.token);
       break;
     case AuthActionType.Logout:
