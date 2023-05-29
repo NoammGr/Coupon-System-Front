@@ -1,8 +1,8 @@
-import "./Home.css";
+import "./AboutUs.css";
 
-function Home(): JSX.Element {
+function AboutUs(): JSX.Element {
   return (
-    <div className="Home Box">
+    <div className="AboutUs Box">
       Coupon system project made for John Bryce finals for more information -
       <br />
       <br />
@@ -11,4 +11,4 @@ function Home(): JSX.Element {
   );
 }
 
-export default Home;
+export default AboutUs;

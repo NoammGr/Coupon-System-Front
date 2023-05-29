@@ -28,6 +28,7 @@ import MyCouponDetails from "../../CustomerArea/MyCoupons/MyCouponDetails/MyCoup
 import MyCustomerDetails from "../../CustomerArea/MyCustomerDetails/MyCustomerDetails";
 import CustomerCoupByCategory from "../../CustomerArea/CustomerCoupByCategory/CustomerCoupByCategory";
 import CustomerCoupByMaxPrice from "../../CustomerArea/CustomerCoupByMaxPrice/CustomerCoupByMaxPrice";
+import AboutUs from "../AboutUs/AboutUs";
 
 function Routing(): JSX.Element {
   return (
@@ -40,6 +41,8 @@ function Routing(): JSX.Element {
         <Route path="/logout" element={<Logout />} />
         {/* Home */}
         <Route path="/home" element={<Home />} />
+        {/* About us */}
+        <Route path="/about" element={<AboutUs />} />
 
         {/* Coupons */}
         <Route path="/coupons" element={<CouponsList />} />

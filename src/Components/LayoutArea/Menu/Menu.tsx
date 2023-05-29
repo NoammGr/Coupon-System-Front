@@ -47,7 +47,7 @@ function Menu(): JSX.Element {
                 <NavLink to={"/coupons"}>Coupons</NavLink>
               </li>
               <li className="Menu-item">
-                <NavLink to={"/about-us"}>About</NavLink>
+                <NavLink to={"/about"}>About</NavLink>
               </li>
             </>
           )}
