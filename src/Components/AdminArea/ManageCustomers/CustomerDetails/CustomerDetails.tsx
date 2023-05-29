@@ -38,7 +38,7 @@ function CustomerDetails(): JSX.Element {
     }
   }
   return (
-    <div className="CustomerDetails">
+    <div className="CustomerDetails Box">
       <h2>Customer details:</h2>
       {customer && (
         <span>
@@ -46,7 +46,7 @@ function CustomerDetails(): JSX.Element {
           <h4>First name: {customer.firstName}</h4>
           <h4>Last name: {customer.lastName}</h4>
           <h4>Email: {customer.email}</h4>
-          <h4>Password: {customer.password}</h4>
+          <h4>Password: ***** </h4>
           <h4>Client type: {customer.clientType}</h4>
           <br />
           <br />

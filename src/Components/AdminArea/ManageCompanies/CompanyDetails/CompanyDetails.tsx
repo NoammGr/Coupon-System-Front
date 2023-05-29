@@ -45,7 +45,7 @@ function CompanyDetails(): JSX.Element {
           <h3>Id: {company.id}</h3>
           <h3>Name: {company.name}</h3>
           <h3>Email: {company.email}</h3>
-          <h3>Password: {company.password}</h3>
+          <h3>Password: ***** </h3>
           <h3>Client type: {company.clientType}</h3>
           <br />
           <br />

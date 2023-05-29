@@ -29,7 +29,7 @@ function MyCustomerDetails(): JSX.Element {
           <h3>First name: {customer.firstName}</h3>
           <h3>Last name: {customer.lastName}</h3>
           <h3>Email: {customer.email}</h3>
-          <h3>Password: {customer.password}</h3>
+          <h3>Password: ***** </h3>
           <h3>
             <NavLink to={"/customer/api/my-coupons"}>Coupons</NavLink>
           </h3>

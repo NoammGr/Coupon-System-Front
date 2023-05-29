@@ -38,7 +38,7 @@ function UpdateCustomer(): JSX.Element {
     }
   }
   return (
-    <div className="UpdateCustomer">
+    <div className="UpdateCustomer Box">
       <form onSubmit={handleSubmit(send)}>
         <h2>Update customer:</h2>
 
