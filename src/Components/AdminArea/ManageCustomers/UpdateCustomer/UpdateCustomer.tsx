@@ -24,9 +24,7 @@ function UpdateCustomer(): JSX.Element {
         setValue("password", fetchCustomer.password);
         setValue("clientType", fetchCustomer.clientType);
       })
-      .catch((error: any) =>
-        notificationService.error(error.response.data.message)
-      );
+      .catch((error) => notificationService.error(error));
   }, [customerId, setValue]);
 
   async function send(customer: CustomerModel) {
@@ -34,8 +32,8 @@ function UpdateCustomer(): JSX.Element {
       await adminService.updateCustomer(customer);
       notificationService.success("Customer updated");
       navigate("/admin/api/manage-customers");
-    } catch (error: any) {
-      notificationService.error(error.response.data.message);
+    } catch (error) {
+      notificationService.error(error);
       console.dir(error);
     }
   }

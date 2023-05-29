@@ -16,7 +16,7 @@ function MyCustomerDetails(): JSX.Element {
         setCustomer(customer);
       })
       .catch((error) => {
-        notificationService.error(error.response.data.message);
+        notificationService.error(error);
       });
   }, []);
 

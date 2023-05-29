@@ -18,8 +18,8 @@ function AddCoupon(): JSX.Element {
       .then((coupId) => {
         setCouponId(coupId + 1);
       })
-      .catch((error: any) => {
-        notificationService.error(error.response.data.message);
+      .catch((error) => {
+        notificationService.error(error);
       });
   });
 
@@ -32,7 +32,7 @@ function AddCoupon(): JSX.Element {
       await companyService.addCoupon(coupon);
       notificationService.success("Coupon added !");
       navigate("/company/api/manage-coupons");
-    } catch (error: any) {
+    } catch (error) {
       notificationService.error(error);
     }
   }

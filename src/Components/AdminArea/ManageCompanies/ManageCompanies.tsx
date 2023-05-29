@@ -15,8 +15,8 @@ function ManageCompanies(): JSX.Element {
       .then((arr) => {
         setCompanies(arr);
       })
-      .catch((error: any) => {
-        notificationService.error(error.response.data.message);
+      .catch((error) => {
+        notificationService.error(error);
       });
   }, []);
 

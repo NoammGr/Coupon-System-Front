@@ -13,7 +13,7 @@ function BrowseCoupons(): JSX.Element {
       (arr) => {
         setCoupons(arr);
       },
-      (error: any) => {
+      (error) => {
         notificationService.error(error);
       }
     );

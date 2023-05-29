@@ -30,8 +30,8 @@ function UpdateCoupon(): JSX.Element {
         setValue("image", null);
         setValue("customers", []);
       })
-      .catch((error: any) => {
-        notificationService.error(error.response.data.message);
+      .catch((error) => {
+        notificationService.error(error);
       });
   }, [couponId, setValue]);
 
@@ -42,8 +42,8 @@ function UpdateCoupon(): JSX.Element {
       await companyService.updateCoupon(coupon);
       notificationService.success("Coupon edited!");
       navigate("/company/api/manage-coupons");
-    } catch (error: any) {
-      notificationService.error(error.response.data.message);
+    } catch (error) {
+      notificationService.error(error);
     }
   }
 

@@ -19,7 +19,7 @@ function MyCouponDetails(): JSX.Element {
         setCoupon(c);
       })
       .catch((error) => {
-        notificationService.error(error.response.data.message);
+        notificationService.error(error);
       });
     couponService
       .getCouponImage(couponId)
@@ -27,7 +27,7 @@ function MyCouponDetails(): JSX.Element {
         setImage(couponImage);
       })
       .catch((error) => {
-        notificationService.error(error.response.data.message);
+        notificationService.error(error);
       });
   }, [couponId]);
 

@@ -16,8 +16,8 @@ function ManageCoupons(): JSX.Element {
       .then((coupons) => {
         setCoupons(coupons);
       })
-      .catch((error: any) => {
-        notificationService.error(error.response.data.message);
+      .catch((error) => {
+        notificationService.error(error);
       });
   }, []);
 
@@ -26,7 +26,7 @@ function ManageCoupons(): JSX.Element {
       <NavLink className="AddCouponButton Box" to={"/company/api/add-coupon"}>
         Add coupon
       </NavLink>
-      
+
       {coupons.length === 0 && <div>Loading ...</div>}
 
       {coupons.map((c) => (

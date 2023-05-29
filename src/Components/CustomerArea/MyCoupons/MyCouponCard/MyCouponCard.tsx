@@ -16,7 +16,7 @@ function MyCouponCard(props: MyCouponCardProps): JSX.Element {
       .then((response) => {
         setImage(response);
       })
-      .catch((error: any) => {
+      .catch((error) => {
         notificationService.error(error);
       });
   });

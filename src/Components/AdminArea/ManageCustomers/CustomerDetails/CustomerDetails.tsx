@@ -19,8 +19,8 @@ function CustomerDetails(): JSX.Element {
       (c) => {
         setCustomer(c);
       },
-      (error: any) => {
-        notificationService.error(error.response.data.message);
+      (error) => {
+        notificationService.error(error);
       }
     );
   }, [customerId]);
@@ -32,8 +32,8 @@ function CustomerDetails(): JSX.Element {
       await adminService.deleteCustomer(customerId);
       notificationService.success("Company deleted");
       navigate("/admin/api/manage-customers");
-    } catch (error: any) {
-      notificationService.error(error.response.data.message);
+    } catch (error) {
+      notificationService.error(error);
       console.dir(error);
     }
   }

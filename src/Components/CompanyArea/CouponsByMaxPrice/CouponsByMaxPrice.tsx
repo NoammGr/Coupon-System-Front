@@ -20,8 +20,8 @@ function CouponsByMaxPrice(): JSX.Element {
         authStore.getState().credentials.sub
       );
       setCoupons(filterCoupons);
-    } catch (error: any) {
-      notificationService.error(error.response.data.message);
+    } catch (error) {
+      notificationService.error(error);
     }
   };
 

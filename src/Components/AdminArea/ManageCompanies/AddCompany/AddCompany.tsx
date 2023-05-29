@@ -19,8 +19,8 @@ function AddCompany(): JSX.Element {
       .then((compId) => {
         setCompanyId(compId + 1);
       })
-      .catch((error: any) => {
-        notificationService.error(error.response.data.message);
+      .catch((error) => {
+        notificationService.error(error);
       });
   }, []);
 
@@ -32,9 +32,9 @@ function AddCompany(): JSX.Element {
       await adminService.addCompany(company);
       notificationService.success("Company added!");
       navigate("/admin/api/manage-companies");
-    } catch (error: any) {
-      notificationService.error(error.response.data.message);
-      console.dir(error.response.data.message);
+    } catch (error) {
+      notificationService.error(error);
+      console.dir(error);
     }
   }
 

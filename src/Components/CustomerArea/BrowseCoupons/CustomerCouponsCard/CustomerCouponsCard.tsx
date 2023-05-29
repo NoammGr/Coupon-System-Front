@@ -19,7 +19,7 @@ function CustomerCouponsCard(props: CustomerCouponCardProps): JSX.Element {
           props.coupon.id
         );
         setImage(responseString);
-      } catch (error: any) {
+      } catch (error) {
         notificationService.error(error);
       }
     };

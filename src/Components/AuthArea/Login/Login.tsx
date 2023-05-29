@@ -14,8 +14,8 @@ function Login(): JSX.Element {
       await authService.login(credentials);
       notificationService.success("Welcome Back !");
       navigate("/home");
-    } catch (error: any) {
-      notificationService.error(error.response.data.message);
+    } catch (error) {
+      notificationService.error(error);
     }
   }
 

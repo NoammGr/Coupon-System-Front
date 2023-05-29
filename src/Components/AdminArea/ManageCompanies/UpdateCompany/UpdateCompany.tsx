@@ -23,9 +23,7 @@ function UpdateCompany(): JSX.Element {
         setValue("password", fetchCompany.password);
         setValue("clientType", fetchCompany.clientType);
       })
-      .catch((error: any) =>
-        notificationService.error(error.response.data.message)
-      );
+      .catch((error) => notificationService.error(error));
   }, [companyId, setValue]);
 
   async function send(company: CompanyModel) {
@@ -33,9 +31,9 @@ function UpdateCompany(): JSX.Element {
       await adminService.updateCompany(company);
       notificationService.success("Company edited!");
       navigate("/admin/api/manage-companies");
-    } catch (error: any) {
-      notificationService.error(error.response.data.message);
-      console.dir(error.response.data.message);
+    } catch (error) {
+      notificationService.error(error);
+      console.dir(error);
     }
   }
 

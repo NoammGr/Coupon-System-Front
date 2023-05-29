@@ -18,8 +18,8 @@ function CompanyDetails(): JSX.Element {
       (c) => {
         setComapny(c);
       },
-      (error: any) => {
-        notificationService.error(error.response.data.message);
+      (error) => {
+        notificationService.error(error);
       }
     );
   }, [companyId]);
@@ -31,8 +31,8 @@ function CompanyDetails(): JSX.Element {
       await adminService.deleteCompany(companyId);
       notificationService.success("Company deleted");
       navigate("/admin/api/manage-companies");
-    } catch (error: any) {
-      notificationService.error(error.response.data.message);
+    } catch (error) {
+      notificationService.error(error);
       console.dir(error);
     }
   }

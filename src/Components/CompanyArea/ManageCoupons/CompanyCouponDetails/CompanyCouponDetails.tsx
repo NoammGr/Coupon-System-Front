@@ -21,8 +21,8 @@ function CompanyCouponDetails(): JSX.Element {
       .then((coupId) => {
         setCoupon(coupId);
       })
-      .catch((error: any) => {
-        notificationService.error(error.response.data.message);
+      .catch((error) => {
+        notificationService.error(error);
       });
     couponService
       .getCouponImage(couponId)
@@ -39,8 +39,8 @@ function CompanyCouponDetails(): JSX.Element {
       await companyService.deleteCoupon(couponId);
       notificationService.success("Coupon deleted");
       navigate("/company/api/manage-coupons");
-    } catch (error: any) {
-      notificationService.error(error.response.data.message);
+    } catch (error) {
+      notificationService.error(error);
       console.dir(error);
     }
   }
@@ -65,7 +65,9 @@ function CompanyCouponDetails(): JSX.Element {
           <br />
           <br />
           <br />
-          <NavLink to={"/company/api/manage-coupons"}>Return to coupons manager</NavLink>
+          <NavLink to={"/company/api/manage-coupons"}>
+            Return to coupons manager
+          </NavLink>
           <span> | </span>
           <NavLink to={"/company/api/update-coupon/" + couponId}>
             Update

@@ -18,7 +18,7 @@ class NotificationService {
   private extractErrorMessage(err: any) {
     if (typeof err == "string") return err;
 
-    if (typeof err.response?.data === "string") return err.response?.data;
+    if (typeof err.response?.data?.message === "string") return err.response.data.message;
 
     if (Array.isArray(err.response?.data)) return err.response?.data[0];
 

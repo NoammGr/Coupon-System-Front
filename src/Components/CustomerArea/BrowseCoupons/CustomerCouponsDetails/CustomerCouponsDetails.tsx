@@ -22,7 +22,7 @@ function CustomerCouponsDetails(): JSX.Element {
         setCoupon(c);
       })
       .catch((error) => {
-        notificationService.error(error.response.data.message);
+        notificationService.error(error);
       });
     couponService
       .getCouponImage(couponId)
@@ -30,7 +30,7 @@ function CustomerCouponsDetails(): JSX.Element {
         setImage(couponImage);
       })
       .catch((error) => {
-        notificationService.error(error.response.data.message);
+        notificationService.error(error);
       });
   }, [couponId]);
 
@@ -44,8 +44,8 @@ function CustomerCouponsDetails(): JSX.Element {
       );
       notificationService.success("Coupon bought");
       navigate("/customer/api/browse-coupons");
-    } catch (error: any) {
-      notificationService.error(error.response.data.message);
+    } catch (error) {
+      notificationService.error(error);
     }
   }
 
@@ -67,7 +67,9 @@ function CustomerCouponsDetails(): JSX.Element {
           <br />
           <br />
           <br />
-          <NavLink to="" onClick={CouponPurchase}>Buy coupon</NavLink>
+          <NavLink to="" onClick={CouponPurchase}>
+            Buy coupon
+          </NavLink>
           <br />
           <br />
           <NavLink to={"/customer/api/browse-coupons"}>

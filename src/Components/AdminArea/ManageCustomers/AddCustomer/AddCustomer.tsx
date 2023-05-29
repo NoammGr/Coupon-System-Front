@@ -18,11 +18,11 @@ function AddCustomer(): JSX.Element {
       .then((customId) => {
         setCustomerId(customId + 1);
       })
-      .catch((error: any) => {
-        notificationService.error(error.response.data.message);
+      .catch((error) => {
+        notificationService.error(error);
       });
   });
-  
+
   async function send(customer: CustomerModel) {
     customer.id = customerId;
     customer.coupons = [];
@@ -31,9 +31,8 @@ function AddCustomer(): JSX.Element {
       await adminService.addCustomer(customer);
       notificationService.success("Customer added !");
       navigate("/admin/api/manage-customers");
-    } catch (error: any) {
-      notificationService.error(error.response.data.message);
-      console.dir(error.response.data.message);
+    } catch (error) {
+      notificationService.error(error);
     }
   }
   return (

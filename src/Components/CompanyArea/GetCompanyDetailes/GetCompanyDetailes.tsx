@@ -15,8 +15,8 @@ function GetCompanyDetailes(): JSX.Element {
       .then((company) => {
         setCompany(company);
       })
-      .catch((error: any) => {
-        notificationService.error(error.response.data.message);
+      .catch((error) => {
+        notificationService.error(error);
       });
   }, []);
 

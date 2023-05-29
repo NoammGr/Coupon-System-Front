@@ -18,16 +18,16 @@ function CouponsDetails(): JSX.Element {
       .then((c) => {
         setCoupon(c);
       })
-      .catch((error: any) => {
-        notificationService.error(error.response.data.message);
+      .catch((error) => {
+        notificationService.error(error);
       });
     couponService
       .getCouponImage(couponId)
       .then((couponImage) => {
         setImage(couponImage);
       })
-      .catch((error: any) => {
-        notificationService.error(error.response.data.message);
+      .catch((error) => {
+        notificationService.error(error);
       });
   }, [couponId]);
   return (
